@@ -4,7 +4,7 @@ name: extract
 # Controls when the action will run. 
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "*/5 * * * *"
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -30,3 +30,10 @@ jobs:
 
       - name: Build project with Maven
         run: mvn clean compile exec:java -D"exec.mainClass"="openpolitica.data.congreso.ProyectosLey2016"
+
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          branch: changes
+          message: 'workflow: datos actualizados'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
