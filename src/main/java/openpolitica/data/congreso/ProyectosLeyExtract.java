@@ -34,9 +34,9 @@ import pe.congreso.leyes.Seguimiento;
 
 import static java.util.stream.Collectors.toList;
 
-public class ProyectoLeyExtract {
+public class ProyectosLeyExtract {
 
-  static final Logger LOG = LoggerFactory.getLogger(ProyectoLeyExtract.class);
+  static final Logger LOG = LoggerFactory.getLogger(ProyectosLeyExtract.class);
   static final Pattern datePattern = Pattern.compile("\\d{2}/\\d{2}/\\d{4}");
 
   final String baseUrl;
@@ -44,7 +44,7 @@ public class ProyectoLeyExtract {
   final String expedienteUrl;
   final int maxBatchSize;
 
-  public ProyectoLeyExtract(
+  public ProyectosLeyExtract(
       String baseUrl,
       String proyectosUrl,
       String expedienteUrl,
@@ -651,7 +651,7 @@ public class ProyectoLeyExtract {
         //"http://www2.congreso.gob.pe/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc1621/06611?opendocument"
     )
         .get();
-    ProyectoLeyExtract.mapEnlacesOpiniones(doc,
+    ProyectosLeyExtract.mapEnlacesOpiniones(doc,
         Enlaces.newBuilder()
             .setExpediente("exp")
             .setSeguimiento("seg"));

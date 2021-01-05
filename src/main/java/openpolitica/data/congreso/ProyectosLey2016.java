@@ -5,7 +5,7 @@ import java.nio.file.Path;
 
 public class ProyectosLey2016 {
   public static void main(String[] args) throws IOException {
-    var app = new ProyectoLeyExtract(
+    var app = new ProyectosLeyExtract(
         "http://www2.congreso.gob.pe",
         "/Sicr/TraDocEstProc/CLProLey2016.nsf/Local%20Por%20Numero?OpenView=&Start=",
         "/Sicr/TraDocEstProc/Expvirt_2011.nsf/visbusqptramdoc1621/%s?opendocument",
