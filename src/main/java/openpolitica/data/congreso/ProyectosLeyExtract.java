@@ -10,6 +10,7 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -102,6 +103,7 @@ public class ProyectosLeyExtract {
       LOG.info("Proyectos importados: {}", index);
     } while (batchSize == maxBatchSize);
 
+    proyectos.sort(Comparator.comparing(ProyectoLey::getPeriodoNumero));
     return proyectos;
   }
 
