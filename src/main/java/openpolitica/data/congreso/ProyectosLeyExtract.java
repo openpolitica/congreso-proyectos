@@ -115,7 +115,8 @@ public class ProyectosLeyExtract {
     return proyectos;
   }
 
-  void save(Path output, List<ProyectoLey> solicitudes) throws IOException {
+  void save(Path output, List<ProyectoLey> proyectos) throws IOException {
+    LOG.info("{} proyectos extraidos", proyectos.size());
     if (Files.isRegularFile(output)) {
       var reader = load(output);
       var current = new ArrayList<ProyectoLey>();
@@ -123,7 +124,8 @@ public class ProyectosLeyExtract {
         current.add(reader.next());
       }
       current.sort(Comparator.comparing(ProyectoLey::getPeriodoNumero));
-      if (current.equals(solicitudes)) {
+      LOG.info("{} proyectos actuales", current.size());
+      if (current.equals(proyectos)) {
         LOG.info("Proyectos de ley no han cambiado");
         return;
       }
@@ -134,7 +136,7 @@ public class ProyectosLeyExtract {
       writer.setCodec(CodecFactory.zstandardCodec(CodecFactory.DEFAULT_ZSTANDARD_LEVEL));
       writer.create(ProyectoLey.getClassSchema(), output.toFile());
 
-      solicitudes.forEach(s -> {
+      proyectos.forEach(s -> {
         try {
           if (s != null) {
             writer.append(s);
