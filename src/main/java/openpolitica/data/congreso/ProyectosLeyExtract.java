@@ -3,6 +3,7 @@ package openpolitica.data.congreso;
 import io.github.resilience4j.retry.Retry;
 import io.github.resilience4j.retry.RetryConfig;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -17,7 +18,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 import org.apache.avro.file.CodecFactory;
+import org.apache.avro.file.DataFileReader;
 import org.apache.avro.file.DataFileWriter;
+import org.apache.avro.specific.SpecificDatumReader;
 import org.apache.avro.specific.SpecificDatumWriter;
 import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
@@ -55,6 +58,11 @@ public class ProyectosLeyExtract {
     this.proyectosUrl = proyectosUrl;
     this.expedienteUrl = expedienteUrl;
     this.maxBatchSize = maxBatchSize;
+  }
+
+  DataFileReader<ProyectoLey> load(Path input) throws IOException {
+    var reader = new SpecificDatumReader<>(ProyectoLey.class);
+    return new DataFileReader<>(input.toFile(), reader);
   }
 
   ArrayList<ProyectoLey> run() {
@@ -108,6 +116,19 @@ public class ProyectosLeyExtract {
   }
 
   void save(Path output, List<ProyectoLey> solicitudes) throws IOException {
+    if (Files.isRegularFile(output)) {
+      var reader = load(output);
+      var current = new ArrayList<ProyectoLey>();
+      while (reader.hasNext()) {
+        current.add(reader.next());
+      }
+      current.sort(Comparator.comparing(ProyectoLey::getPeriodoNumero));
+      if (current.equals(solicitudes)) {
+        LOG.info("Proyectos de ley no han cambiado");
+        return;
+      }
+    }
+
     var datumWriter = new SpecificDatumWriter<>(ProyectoLey.class);
     try (var writer = new DataFileWriter<>(datumWriter)) {
       writer.setCodec(CodecFactory.zstandardCodec(CodecFactory.DEFAULT_ZSTANDARD_LEVEL));
