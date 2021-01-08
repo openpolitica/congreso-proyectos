@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package pe.congreso.leyes;
+package openpolitica.congreso.leyes;
 
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Documento extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4636850225281712209L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Documento\",\"namespace\":\"pe.congreso.leyes\",\"fields\":[{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"tipo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"url\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"fecha\",\"type\":[\"long\",\"null\"]}]}");
+  private static final long serialVersionUID = 857284723160063444L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Documento\",\"namespace\":\"openpolitica.congreso.leyes\",\"fields\":[{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"tipo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"url\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"fecha\",\"type\":[\"long\",\"null\"]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -194,8 +194,8 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
    * Creates a new Documento RecordBuilder.
    * @return A new Documento RecordBuilder
    */
-  public static pe.congreso.leyes.Documento.Builder newBuilder() {
-    return new pe.congreso.leyes.Documento.Builder();
+  public static openpolitica.congreso.leyes.Documento.Builder newBuilder() {
+    return new openpolitica.congreso.leyes.Documento.Builder();
   }
 
   /**
@@ -203,11 +203,11 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
    * @param other The existing builder to copy.
    * @return A new Documento RecordBuilder
    */
-  public static pe.congreso.leyes.Documento.Builder newBuilder(pe.congreso.leyes.Documento.Builder other) {
+  public static openpolitica.congreso.leyes.Documento.Builder newBuilder(openpolitica.congreso.leyes.Documento.Builder other) {
     if (other == null) {
-      return new pe.congreso.leyes.Documento.Builder();
+      return new openpolitica.congreso.leyes.Documento.Builder();
     } else {
-      return new pe.congreso.leyes.Documento.Builder(other);
+      return new openpolitica.congreso.leyes.Documento.Builder(other);
     }
   }
 
@@ -216,11 +216,11 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
    * @param other The existing instance to copy.
    * @return A new Documento RecordBuilder
    */
-  public static pe.congreso.leyes.Documento.Builder newBuilder(pe.congreso.leyes.Documento other) {
+  public static openpolitica.congreso.leyes.Documento.Builder newBuilder(openpolitica.congreso.leyes.Documento other) {
     if (other == null) {
-      return new pe.congreso.leyes.Documento.Builder();
+      return new openpolitica.congreso.leyes.Documento.Builder();
     } else {
-      return new pe.congreso.leyes.Documento.Builder(other);
+      return new openpolitica.congreso.leyes.Documento.Builder(other);
     }
   }
 
@@ -245,7 +245,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(pe.congreso.leyes.Documento.Builder other) {
+    private Builder(openpolitica.congreso.leyes.Documento.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.titulo)) {
         this.titulo = data().deepCopy(fields()[0].schema(), other.titulo);
@@ -269,7 +269,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
      * Creates a Builder by copying an existing Documento instance
      * @param other The existing instance to copy.
      */
-    private Builder(pe.congreso.leyes.Documento other) {
+    private Builder(openpolitica.congreso.leyes.Documento other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.titulo)) {
         this.titulo = data().deepCopy(fields()[0].schema(), other.titulo);
@@ -303,7 +303,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'titulo'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Documento.Builder setTitulo(java.lang.String value) {
+    public openpolitica.congreso.leyes.Documento.Builder setTitulo(java.lang.String value) {
       validate(fields()[0], value);
       this.titulo = value;
       fieldSetFlags()[0] = true;
@@ -323,7 +323,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
       * Clears the value of the 'titulo' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Documento.Builder clearTitulo() {
+    public openpolitica.congreso.leyes.Documento.Builder clearTitulo() {
       titulo = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -343,7 +343,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'tipo'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Documento.Builder setTipo(java.lang.String value) {
+    public openpolitica.congreso.leyes.Documento.Builder setTipo(java.lang.String value) {
       validate(fields()[1], value);
       this.tipo = value;
       fieldSetFlags()[1] = true;
@@ -363,7 +363,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
       * Clears the value of the 'tipo' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Documento.Builder clearTipo() {
+    public openpolitica.congreso.leyes.Documento.Builder clearTipo() {
       tipo = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -383,7 +383,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'url'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Documento.Builder setUrl(java.lang.String value) {
+    public openpolitica.congreso.leyes.Documento.Builder setUrl(java.lang.String value) {
       validate(fields()[2], value);
       this.url = value;
       fieldSetFlags()[2] = true;
@@ -403,7 +403,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
       * Clears the value of the 'url' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Documento.Builder clearUrl() {
+    public openpolitica.congreso.leyes.Documento.Builder clearUrl() {
       url = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -423,7 +423,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'fecha'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Documento.Builder setFecha(java.lang.Long value) {
+    public openpolitica.congreso.leyes.Documento.Builder setFecha(java.lang.Long value) {
       validate(fields()[3], value);
       this.fecha = value;
       fieldSetFlags()[3] = true;
@@ -443,7 +443,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
       * Clears the value of the 'fecha' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Documento.Builder clearFecha() {
+    public openpolitica.congreso.leyes.Documento.Builder clearFecha() {
       fecha = null;
       fieldSetFlags()[3] = false;
       return this;

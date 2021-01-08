@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package pe.congreso.leyes;
+package openpolitica.congreso.leyes;
 
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Ley extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -8978912018936278353L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Ley\",\"namespace\":\"pe.congreso.leyes\",\"fields\":[{\"name\":\"numero\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"sumilla\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"}]}");
+  private static final long serialVersionUID = -2900981347388803756L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Ley\",\"namespace\":\"openpolitica.congreso.leyes\",\"fields\":[{\"name\":\"numero\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"sumilla\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -172,8 +172,8 @@ public class Ley extends org.apache.avro.specific.SpecificRecordBase implements 
    * Creates a new Ley RecordBuilder.
    * @return A new Ley RecordBuilder
    */
-  public static pe.congreso.leyes.Ley.Builder newBuilder() {
-    return new pe.congreso.leyes.Ley.Builder();
+  public static openpolitica.congreso.leyes.Ley.Builder newBuilder() {
+    return new openpolitica.congreso.leyes.Ley.Builder();
   }
 
   /**
@@ -181,11 +181,11 @@ public class Ley extends org.apache.avro.specific.SpecificRecordBase implements 
    * @param other The existing builder to copy.
    * @return A new Ley RecordBuilder
    */
-  public static pe.congreso.leyes.Ley.Builder newBuilder(pe.congreso.leyes.Ley.Builder other) {
+  public static openpolitica.congreso.leyes.Ley.Builder newBuilder(openpolitica.congreso.leyes.Ley.Builder other) {
     if (other == null) {
-      return new pe.congreso.leyes.Ley.Builder();
+      return new openpolitica.congreso.leyes.Ley.Builder();
     } else {
-      return new pe.congreso.leyes.Ley.Builder(other);
+      return new openpolitica.congreso.leyes.Ley.Builder(other);
     }
   }
 
@@ -194,11 +194,11 @@ public class Ley extends org.apache.avro.specific.SpecificRecordBase implements 
    * @param other The existing instance to copy.
    * @return A new Ley RecordBuilder
    */
-  public static pe.congreso.leyes.Ley.Builder newBuilder(pe.congreso.leyes.Ley other) {
+  public static openpolitica.congreso.leyes.Ley.Builder newBuilder(openpolitica.congreso.leyes.Ley other) {
     if (other == null) {
-      return new pe.congreso.leyes.Ley.Builder();
+      return new openpolitica.congreso.leyes.Ley.Builder();
     } else {
-      return new pe.congreso.leyes.Ley.Builder(other);
+      return new openpolitica.congreso.leyes.Ley.Builder(other);
     }
   }
 
@@ -222,7 +222,7 @@ public class Ley extends org.apache.avro.specific.SpecificRecordBase implements 
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(pe.congreso.leyes.Ley.Builder other) {
+    private Builder(openpolitica.congreso.leyes.Ley.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.numero)) {
         this.numero = data().deepCopy(fields()[0].schema(), other.numero);
@@ -242,7 +242,7 @@ public class Ley extends org.apache.avro.specific.SpecificRecordBase implements 
      * Creates a Builder by copying an existing Ley instance
      * @param other The existing instance to copy.
      */
-    private Builder(pe.congreso.leyes.Ley other) {
+    private Builder(openpolitica.congreso.leyes.Ley other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.numero)) {
         this.numero = data().deepCopy(fields()[0].schema(), other.numero);
@@ -272,7 +272,7 @@ public class Ley extends org.apache.avro.specific.SpecificRecordBase implements 
       * @param value The value of 'numero'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Ley.Builder setNumero(java.lang.String value) {
+    public openpolitica.congreso.leyes.Ley.Builder setNumero(java.lang.String value) {
       validate(fields()[0], value);
       this.numero = value;
       fieldSetFlags()[0] = true;
@@ -292,7 +292,7 @@ public class Ley extends org.apache.avro.specific.SpecificRecordBase implements 
       * Clears the value of the 'numero' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Ley.Builder clearNumero() {
+    public openpolitica.congreso.leyes.Ley.Builder clearNumero() {
       numero = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -312,7 +312,7 @@ public class Ley extends org.apache.avro.specific.SpecificRecordBase implements 
       * @param value The value of 'titulo'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Ley.Builder setTitulo(java.lang.String value) {
+    public openpolitica.congreso.leyes.Ley.Builder setTitulo(java.lang.String value) {
       validate(fields()[1], value);
       this.titulo = value;
       fieldSetFlags()[1] = true;
@@ -332,7 +332,7 @@ public class Ley extends org.apache.avro.specific.SpecificRecordBase implements 
       * Clears the value of the 'titulo' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Ley.Builder clearTitulo() {
+    public openpolitica.congreso.leyes.Ley.Builder clearTitulo() {
       titulo = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -352,7 +352,7 @@ public class Ley extends org.apache.avro.specific.SpecificRecordBase implements 
       * @param value The value of 'sumilla'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Ley.Builder setSumilla(java.lang.String value) {
+    public openpolitica.congreso.leyes.Ley.Builder setSumilla(java.lang.String value) {
       validate(fields()[2], value);
       this.sumilla = value;
       fieldSetFlags()[2] = true;
@@ -372,7 +372,7 @@ public class Ley extends org.apache.avro.specific.SpecificRecordBase implements 
       * Clears the value of the 'sumilla' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Ley.Builder clearSumilla() {
+    public openpolitica.congreso.leyes.Ley.Builder clearSumilla() {
       sumilla = null;
       fieldSetFlags()[2] = false;
       return this;

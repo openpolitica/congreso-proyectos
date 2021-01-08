@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package pe.congreso.leyes;
+package openpolitica.congreso.leyes;
 
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Congresista extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -2921682491023111270L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Congresista\",\"namespace\":\"pe.congreso.leyes\",\"fields\":[{\"name\":\"nombre_completo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"correo_electronico\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = -7882367587311751769L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Congresista\",\"namespace\":\"openpolitica.congreso.leyes\",\"fields\":[{\"name\":\"nombre_completo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"correo_electronico\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -150,8 +150,8 @@ public class Congresista extends org.apache.avro.specific.SpecificRecordBase imp
    * Creates a new Congresista RecordBuilder.
    * @return A new Congresista RecordBuilder
    */
-  public static pe.congreso.leyes.Congresista.Builder newBuilder() {
-    return new pe.congreso.leyes.Congresista.Builder();
+  public static openpolitica.congreso.leyes.Congresista.Builder newBuilder() {
+    return new openpolitica.congreso.leyes.Congresista.Builder();
   }
 
   /**
@@ -159,11 +159,11 @@ public class Congresista extends org.apache.avro.specific.SpecificRecordBase imp
    * @param other The existing builder to copy.
    * @return A new Congresista RecordBuilder
    */
-  public static pe.congreso.leyes.Congresista.Builder newBuilder(pe.congreso.leyes.Congresista.Builder other) {
+  public static openpolitica.congreso.leyes.Congresista.Builder newBuilder(openpolitica.congreso.leyes.Congresista.Builder other) {
     if (other == null) {
-      return new pe.congreso.leyes.Congresista.Builder();
+      return new openpolitica.congreso.leyes.Congresista.Builder();
     } else {
-      return new pe.congreso.leyes.Congresista.Builder(other);
+      return new openpolitica.congreso.leyes.Congresista.Builder(other);
     }
   }
 
@@ -172,11 +172,11 @@ public class Congresista extends org.apache.avro.specific.SpecificRecordBase imp
    * @param other The existing instance to copy.
    * @return A new Congresista RecordBuilder
    */
-  public static pe.congreso.leyes.Congresista.Builder newBuilder(pe.congreso.leyes.Congresista other) {
+  public static openpolitica.congreso.leyes.Congresista.Builder newBuilder(openpolitica.congreso.leyes.Congresista other) {
     if (other == null) {
-      return new pe.congreso.leyes.Congresista.Builder();
+      return new openpolitica.congreso.leyes.Congresista.Builder();
     } else {
-      return new pe.congreso.leyes.Congresista.Builder(other);
+      return new openpolitica.congreso.leyes.Congresista.Builder(other);
     }
   }
 
@@ -199,7 +199,7 @@ public class Congresista extends org.apache.avro.specific.SpecificRecordBase imp
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(pe.congreso.leyes.Congresista.Builder other) {
+    private Builder(openpolitica.congreso.leyes.Congresista.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.nombre_completo)) {
         this.nombre_completo = data().deepCopy(fields()[0].schema(), other.nombre_completo);
@@ -215,7 +215,7 @@ public class Congresista extends org.apache.avro.specific.SpecificRecordBase imp
      * Creates a Builder by copying an existing Congresista instance
      * @param other The existing instance to copy.
      */
-    private Builder(pe.congreso.leyes.Congresista other) {
+    private Builder(openpolitica.congreso.leyes.Congresista other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.nombre_completo)) {
         this.nombre_completo = data().deepCopy(fields()[0].schema(), other.nombre_completo);
@@ -241,7 +241,7 @@ public class Congresista extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'nombre_completo'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Congresista.Builder setNombreCompleto(java.lang.String value) {
+    public openpolitica.congreso.leyes.Congresista.Builder setNombreCompleto(java.lang.String value) {
       validate(fields()[0], value);
       this.nombre_completo = value;
       fieldSetFlags()[0] = true;
@@ -261,7 +261,7 @@ public class Congresista extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'nombre_completo' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Congresista.Builder clearNombreCompleto() {
+    public openpolitica.congreso.leyes.Congresista.Builder clearNombreCompleto() {
       nombre_completo = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -281,7 +281,7 @@ public class Congresista extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'correo_electronico'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Congresista.Builder setCorreoElectronico(java.lang.String value) {
+    public openpolitica.congreso.leyes.Congresista.Builder setCorreoElectronico(java.lang.String value) {
       validate(fields()[1], value);
       this.correo_electronico = value;
       fieldSetFlags()[1] = true;
@@ -301,7 +301,7 @@ public class Congresista extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'correo_electronico' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Congresista.Builder clearCorreoElectronico() {
+    public openpolitica.congreso.leyes.Congresista.Builder clearCorreoElectronico() {
       correo_electronico = null;
       fieldSetFlags()[1] = false;
       return this;

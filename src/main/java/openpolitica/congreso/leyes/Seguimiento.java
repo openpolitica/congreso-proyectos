@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package pe.congreso.leyes;
+package openpolitica.congreso.leyes;
 
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Seguimiento extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 4936694058366732868L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Seguimiento\",\"namespace\":\"pe.congreso.leyes\",\"fields\":[{\"name\":\"fecha\",\"type\":\"long\"},{\"name\":\"evento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = 6545416708677340598L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Seguimiento\",\"namespace\":\"openpolitica.congreso.leyes\",\"fields\":[{\"name\":\"fecha\",\"type\":\"long\"},{\"name\":\"evento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -150,8 +150,8 @@ public class Seguimiento extends org.apache.avro.specific.SpecificRecordBase imp
    * Creates a new Seguimiento RecordBuilder.
    * @return A new Seguimiento RecordBuilder
    */
-  public static pe.congreso.leyes.Seguimiento.Builder newBuilder() {
-    return new pe.congreso.leyes.Seguimiento.Builder();
+  public static openpolitica.congreso.leyes.Seguimiento.Builder newBuilder() {
+    return new openpolitica.congreso.leyes.Seguimiento.Builder();
   }
 
   /**
@@ -159,11 +159,11 @@ public class Seguimiento extends org.apache.avro.specific.SpecificRecordBase imp
    * @param other The existing builder to copy.
    * @return A new Seguimiento RecordBuilder
    */
-  public static pe.congreso.leyes.Seguimiento.Builder newBuilder(pe.congreso.leyes.Seguimiento.Builder other) {
+  public static openpolitica.congreso.leyes.Seguimiento.Builder newBuilder(openpolitica.congreso.leyes.Seguimiento.Builder other) {
     if (other == null) {
-      return new pe.congreso.leyes.Seguimiento.Builder();
+      return new openpolitica.congreso.leyes.Seguimiento.Builder();
     } else {
-      return new pe.congreso.leyes.Seguimiento.Builder(other);
+      return new openpolitica.congreso.leyes.Seguimiento.Builder(other);
     }
   }
 
@@ -172,11 +172,11 @@ public class Seguimiento extends org.apache.avro.specific.SpecificRecordBase imp
    * @param other The existing instance to copy.
    * @return A new Seguimiento RecordBuilder
    */
-  public static pe.congreso.leyes.Seguimiento.Builder newBuilder(pe.congreso.leyes.Seguimiento other) {
+  public static openpolitica.congreso.leyes.Seguimiento.Builder newBuilder(openpolitica.congreso.leyes.Seguimiento other) {
     if (other == null) {
-      return new pe.congreso.leyes.Seguimiento.Builder();
+      return new openpolitica.congreso.leyes.Seguimiento.Builder();
     } else {
-      return new pe.congreso.leyes.Seguimiento.Builder(other);
+      return new openpolitica.congreso.leyes.Seguimiento.Builder(other);
     }
   }
 
@@ -199,7 +199,7 @@ public class Seguimiento extends org.apache.avro.specific.SpecificRecordBase imp
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(pe.congreso.leyes.Seguimiento.Builder other) {
+    private Builder(openpolitica.congreso.leyes.Seguimiento.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.fecha)) {
         this.fecha = data().deepCopy(fields()[0].schema(), other.fecha);
@@ -215,7 +215,7 @@ public class Seguimiento extends org.apache.avro.specific.SpecificRecordBase imp
      * Creates a Builder by copying an existing Seguimiento instance
      * @param other The existing instance to copy.
      */
-    private Builder(pe.congreso.leyes.Seguimiento other) {
+    private Builder(openpolitica.congreso.leyes.Seguimiento other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.fecha)) {
         this.fecha = data().deepCopy(fields()[0].schema(), other.fecha);
@@ -241,7 +241,7 @@ public class Seguimiento extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'fecha'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Seguimiento.Builder setFecha(long value) {
+    public openpolitica.congreso.leyes.Seguimiento.Builder setFecha(long value) {
       validate(fields()[0], value);
       this.fecha = value;
       fieldSetFlags()[0] = true;
@@ -261,7 +261,7 @@ public class Seguimiento extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'fecha' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Seguimiento.Builder clearFecha() {
+    public openpolitica.congreso.leyes.Seguimiento.Builder clearFecha() {
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -280,7 +280,7 @@ public class Seguimiento extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'evento'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Seguimiento.Builder setEvento(java.lang.String value) {
+    public openpolitica.congreso.leyes.Seguimiento.Builder setEvento(java.lang.String value) {
       validate(fields()[1], value);
       this.evento = value;
       fieldSetFlags()[1] = true;
@@ -300,7 +300,7 @@ public class Seguimiento extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'evento' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Seguimiento.Builder clearEvento() {
+    public openpolitica.congreso.leyes.Seguimiento.Builder clearEvento() {
       evento = null;
       fieldSetFlags()[1] = false;
       return this;

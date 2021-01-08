@@ -1,4 +1,4 @@
-package openpolitica.data.congreso;
+package openpolitica.congreso;
 
 import java.io.IOException;
 import java.nio.file.Path;

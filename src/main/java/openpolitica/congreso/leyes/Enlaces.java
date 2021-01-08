@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package pe.congreso.leyes;
+package openpolitica.congreso.leyes;
 
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Enlaces extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3946002362626290372L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Enlaces\",\"namespace\":\"pe.congreso.leyes\",\"fields\":[{\"name\":\"seguimiento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"expediente\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"opiniones_publicadas\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"opiniones_publicar\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"}]}");
+  private static final long serialVersionUID = -3917353925020992797L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Enlaces\",\"namespace\":\"openpolitica.congreso.leyes\",\"fields\":[{\"name\":\"seguimiento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"expediente\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"opiniones_publicadas\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"opiniones_publicar\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -194,8 +194,8 @@ public class Enlaces extends org.apache.avro.specific.SpecificRecordBase impleme
    * Creates a new Enlaces RecordBuilder.
    * @return A new Enlaces RecordBuilder
    */
-  public static pe.congreso.leyes.Enlaces.Builder newBuilder() {
-    return new pe.congreso.leyes.Enlaces.Builder();
+  public static openpolitica.congreso.leyes.Enlaces.Builder newBuilder() {
+    return new openpolitica.congreso.leyes.Enlaces.Builder();
   }
 
   /**
@@ -203,11 +203,11 @@ public class Enlaces extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param other The existing builder to copy.
    * @return A new Enlaces RecordBuilder
    */
-  public static pe.congreso.leyes.Enlaces.Builder newBuilder(pe.congreso.leyes.Enlaces.Builder other) {
+  public static openpolitica.congreso.leyes.Enlaces.Builder newBuilder(openpolitica.congreso.leyes.Enlaces.Builder other) {
     if (other == null) {
-      return new pe.congreso.leyes.Enlaces.Builder();
+      return new openpolitica.congreso.leyes.Enlaces.Builder();
     } else {
-      return new pe.congreso.leyes.Enlaces.Builder(other);
+      return new openpolitica.congreso.leyes.Enlaces.Builder(other);
     }
   }
 
@@ -216,11 +216,11 @@ public class Enlaces extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param other The existing instance to copy.
    * @return A new Enlaces RecordBuilder
    */
-  public static pe.congreso.leyes.Enlaces.Builder newBuilder(pe.congreso.leyes.Enlaces other) {
+  public static openpolitica.congreso.leyes.Enlaces.Builder newBuilder(openpolitica.congreso.leyes.Enlaces other) {
     if (other == null) {
-      return new pe.congreso.leyes.Enlaces.Builder();
+      return new openpolitica.congreso.leyes.Enlaces.Builder();
     } else {
-      return new pe.congreso.leyes.Enlaces.Builder(other);
+      return new openpolitica.congreso.leyes.Enlaces.Builder(other);
     }
   }
 
@@ -245,7 +245,7 @@ public class Enlaces extends org.apache.avro.specific.SpecificRecordBase impleme
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(pe.congreso.leyes.Enlaces.Builder other) {
+    private Builder(openpolitica.congreso.leyes.Enlaces.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.seguimiento)) {
         this.seguimiento = data().deepCopy(fields()[0].schema(), other.seguimiento);
@@ -269,7 +269,7 @@ public class Enlaces extends org.apache.avro.specific.SpecificRecordBase impleme
      * Creates a Builder by copying an existing Enlaces instance
      * @param other The existing instance to copy.
      */
-    private Builder(pe.congreso.leyes.Enlaces other) {
+    private Builder(openpolitica.congreso.leyes.Enlaces other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.seguimiento)) {
         this.seguimiento = data().deepCopy(fields()[0].schema(), other.seguimiento);
@@ -303,7 +303,7 @@ public class Enlaces extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'seguimiento'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Enlaces.Builder setSeguimiento(java.lang.String value) {
+    public openpolitica.congreso.leyes.Enlaces.Builder setSeguimiento(java.lang.String value) {
       validate(fields()[0], value);
       this.seguimiento = value;
       fieldSetFlags()[0] = true;
@@ -323,7 +323,7 @@ public class Enlaces extends org.apache.avro.specific.SpecificRecordBase impleme
       * Clears the value of the 'seguimiento' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Enlaces.Builder clearSeguimiento() {
+    public openpolitica.congreso.leyes.Enlaces.Builder clearSeguimiento() {
       seguimiento = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -343,7 +343,7 @@ public class Enlaces extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'expediente'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Enlaces.Builder setExpediente(java.lang.String value) {
+    public openpolitica.congreso.leyes.Enlaces.Builder setExpediente(java.lang.String value) {
       validate(fields()[1], value);
       this.expediente = value;
       fieldSetFlags()[1] = true;
@@ -363,7 +363,7 @@ public class Enlaces extends org.apache.avro.specific.SpecificRecordBase impleme
       * Clears the value of the 'expediente' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Enlaces.Builder clearExpediente() {
+    public openpolitica.congreso.leyes.Enlaces.Builder clearExpediente() {
       expediente = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -383,7 +383,7 @@ public class Enlaces extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'opiniones_publicadas'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Enlaces.Builder setOpinionesPublicadas(java.lang.String value) {
+    public openpolitica.congreso.leyes.Enlaces.Builder setOpinionesPublicadas(java.lang.String value) {
       validate(fields()[2], value);
       this.opiniones_publicadas = value;
       fieldSetFlags()[2] = true;
@@ -403,7 +403,7 @@ public class Enlaces extends org.apache.avro.specific.SpecificRecordBase impleme
       * Clears the value of the 'opiniones_publicadas' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Enlaces.Builder clearOpinionesPublicadas() {
+    public openpolitica.congreso.leyes.Enlaces.Builder clearOpinionesPublicadas() {
       opiniones_publicadas = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -423,7 +423,7 @@ public class Enlaces extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'opiniones_publicar'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Enlaces.Builder setOpinionesPublicar(java.lang.String value) {
+    public openpolitica.congreso.leyes.Enlaces.Builder setOpinionesPublicar(java.lang.String value) {
       validate(fields()[3], value);
       this.opiniones_publicar = value;
       fieldSetFlags()[3] = true;
@@ -443,7 +443,7 @@ public class Enlaces extends org.apache.avro.specific.SpecificRecordBase impleme
       * Clears the value of the 'opiniones_publicar' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Enlaces.Builder clearOpinionesPublicar() {
+    public openpolitica.congreso.leyes.Enlaces.Builder clearOpinionesPublicar() {
       opiniones_publicar = null;
       fieldSetFlags()[3] = false;
       return this;

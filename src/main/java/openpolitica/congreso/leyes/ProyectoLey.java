@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package pe.congreso.leyes;
+package openpolitica.congreso.leyes;
 
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -508587524147035361L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ProyectoLey\",\"namespace\":\"pe.congreso.leyes\",\"fields\":[{\"name\":\"periodo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"periodo_numero\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"publicacion_fecha\",\"type\":\"long\"},{\"name\":\"actualizacion_fecha\",\"type\":[\"long\",\"null\"]},{\"name\":\"numero_unico\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"titulo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"sumilla\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"legislatura\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"proponente\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"grupo_parlamentario\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"iniciativas_agrupadas\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}},{\"name\":\"autores\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Congresista\",\"fields\":[{\"name\":\"nombre_completo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"correo_electronico\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}}},{\"name\":\"adherentes\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}},{\"name\":\"seguimiento_texto\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"seguimiento\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Seguimiento\",\"fields\":[{\"name\":\"fecha\",\"type\":\"long\"},{\"name\":\"evento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}}},{\"name\":\"sectores\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}},{\"name\":\"expediente\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Expediente\",\"fields\":[{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"subtitulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"documentos\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Documento\",\"fields\":[{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"tipo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"url\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"fecha\",\"type\":[\"long\",\"null\"]}]}}}]}]},{\"name\":\"ley\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Ley\",\"fields\":[{\"name\":\"numero\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"sumilla\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"}]}]},{\"name\":\"enlaces\",\"type\":{\"type\":\"record\",\"name\":\"Enlaces\",\"fields\":[{\"name\":\"seguimiento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"expediente\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"opiniones_publicadas\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"opiniones_publicar\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"}]}}]}");
+  private static final long serialVersionUID = -5566679410294649324L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ProyectoLey\",\"namespace\":\"openpolitica.congreso.leyes\",\"fields\":[{\"name\":\"periodo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"periodo_numero\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"publicacion_fecha\",\"type\":\"long\"},{\"name\":\"actualizacion_fecha\",\"type\":[\"long\",\"null\"]},{\"name\":\"numero_unico\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"titulo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"sumilla\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"legislatura\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"proponente\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"grupo_parlamentario\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"iniciativas_agrupadas\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}},{\"name\":\"autores\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Congresista\",\"fields\":[{\"name\":\"nombre_completo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"correo_electronico\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}}},{\"name\":\"adherentes\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}},{\"name\":\"seguimiento_texto\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"seguimiento\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Seguimiento\",\"fields\":[{\"name\":\"fecha\",\"type\":\"long\"},{\"name\":\"evento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}}},{\"name\":\"sectores\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}},{\"name\":\"expediente\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Expediente\",\"fields\":[{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"subtitulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"documentos\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Documento\",\"fields\":[{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"tipo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"url\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"fecha\",\"type\":[\"long\",\"null\"]}]}}}]}]},{\"name\":\"ley\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Ley\",\"fields\":[{\"name\":\"numero\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"sumilla\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"}]}]},{\"name\":\"enlaces\",\"type\":{\"type\":\"record\",\"name\":\"Enlaces\",\"fields\":[{\"name\":\"seguimiento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"expediente\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"opiniones_publicadas\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"opiniones_publicar\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -83,14 +83,14 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    private java.lang.String proponente;
    private java.lang.String grupo_parlamentario;
    private java.util.List<java.lang.String> iniciativas_agrupadas;
-   private java.util.List<pe.congreso.leyes.Congresista> autores;
+   private java.util.List<openpolitica.congreso.leyes.Congresista> autores;
    private java.util.List<java.lang.String> adherentes;
    private java.lang.String seguimiento_texto;
-   private java.util.List<pe.congreso.leyes.Seguimiento> seguimiento;
+   private java.util.List<openpolitica.congreso.leyes.Seguimiento> seguimiento;
    private java.util.List<java.lang.String> sectores;
-   private pe.congreso.leyes.Expediente expediente;
-   private pe.congreso.leyes.Ley ley;
-   private pe.congreso.leyes.Enlaces enlaces;
+   private openpolitica.congreso.leyes.Expediente expediente;
+   private openpolitica.congreso.leyes.Ley ley;
+   private openpolitica.congreso.leyes.Enlaces enlaces;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -122,7 +122,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    * @param ley The new value for ley
    * @param enlaces The new value for enlaces
    */
-  public ProyectoLey(java.lang.String periodo, java.lang.String periodo_numero, java.lang.String estado, java.lang.Long publicacion_fecha, java.lang.Long actualizacion_fecha, java.lang.String numero_unico, java.lang.String titulo, java.lang.String sumilla, java.lang.String legislatura, java.lang.String proponente, java.lang.String grupo_parlamentario, java.util.List<java.lang.String> iniciativas_agrupadas, java.util.List<pe.congreso.leyes.Congresista> autores, java.util.List<java.lang.String> adherentes, java.lang.String seguimiento_texto, java.util.List<pe.congreso.leyes.Seguimiento> seguimiento, java.util.List<java.lang.String> sectores, pe.congreso.leyes.Expediente expediente, pe.congreso.leyes.Ley ley, pe.congreso.leyes.Enlaces enlaces) {
+  public ProyectoLey(java.lang.String periodo, java.lang.String periodo_numero, java.lang.String estado, java.lang.Long publicacion_fecha, java.lang.Long actualizacion_fecha, java.lang.String numero_unico, java.lang.String titulo, java.lang.String sumilla, java.lang.String legislatura, java.lang.String proponente, java.lang.String grupo_parlamentario, java.util.List<java.lang.String> iniciativas_agrupadas, java.util.List<openpolitica.congreso.leyes.Congresista> autores, java.util.List<java.lang.String> adherentes, java.lang.String seguimiento_texto, java.util.List<openpolitica.congreso.leyes.Seguimiento> seguimiento, java.util.List<java.lang.String> sectores, openpolitica.congreso.leyes.Expediente expediente, openpolitica.congreso.leyes.Ley ley, openpolitica.congreso.leyes.Enlaces enlaces) {
     this.periodo = periodo;
     this.periodo_numero = periodo_numero;
     this.estado = estado;
@@ -190,14 +190,14 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
     case 9: proponente = value$ != null ? value$.toString() : null; break;
     case 10: grupo_parlamentario = value$ != null ? value$.toString() : null; break;
     case 11: iniciativas_agrupadas = (java.util.List<java.lang.String>)value$; break;
-    case 12: autores = (java.util.List<pe.congreso.leyes.Congresista>)value$; break;
+    case 12: autores = (java.util.List<openpolitica.congreso.leyes.Congresista>)value$; break;
     case 13: adherentes = (java.util.List<java.lang.String>)value$; break;
     case 14: seguimiento_texto = value$ != null ? value$.toString() : null; break;
-    case 15: seguimiento = (java.util.List<pe.congreso.leyes.Seguimiento>)value$; break;
+    case 15: seguimiento = (java.util.List<openpolitica.congreso.leyes.Seguimiento>)value$; break;
     case 16: sectores = (java.util.List<java.lang.String>)value$; break;
-    case 17: expediente = (pe.congreso.leyes.Expediente)value$; break;
-    case 18: ley = (pe.congreso.leyes.Ley)value$; break;
-    case 19: enlaces = (pe.congreso.leyes.Enlaces)value$; break;
+    case 17: expediente = (openpolitica.congreso.leyes.Expediente)value$; break;
+    case 18: ley = (openpolitica.congreso.leyes.Ley)value$; break;
+    case 19: enlaces = (openpolitica.congreso.leyes.Enlaces)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -410,7 +410,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    * Gets the value of the 'autores' field.
    * @return The value of the 'autores' field.
    */
-  public java.util.List<pe.congreso.leyes.Congresista> getAutores() {
+  public java.util.List<openpolitica.congreso.leyes.Congresista> getAutores() {
     return autores;
   }
 
@@ -419,7 +419,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    * Sets the value of the 'autores' field.
    * @param value the value to set.
    */
-  public void setAutores(java.util.List<pe.congreso.leyes.Congresista> value) {
+  public void setAutores(java.util.List<openpolitica.congreso.leyes.Congresista> value) {
     this.autores = value;
   }
 
@@ -461,7 +461,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    * Gets the value of the 'seguimiento' field.
    * @return The value of the 'seguimiento' field.
    */
-  public java.util.List<pe.congreso.leyes.Seguimiento> getSeguimiento() {
+  public java.util.List<openpolitica.congreso.leyes.Seguimiento> getSeguimiento() {
     return seguimiento;
   }
 
@@ -470,7 +470,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    * Sets the value of the 'seguimiento' field.
    * @param value the value to set.
    */
-  public void setSeguimiento(java.util.List<pe.congreso.leyes.Seguimiento> value) {
+  public void setSeguimiento(java.util.List<openpolitica.congreso.leyes.Seguimiento> value) {
     this.seguimiento = value;
   }
 
@@ -495,7 +495,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    * Gets the value of the 'expediente' field.
    * @return The value of the 'expediente' field.
    */
-  public pe.congreso.leyes.Expediente getExpediente() {
+  public openpolitica.congreso.leyes.Expediente getExpediente() {
     return expediente;
   }
 
@@ -504,7 +504,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    * Sets the value of the 'expediente' field.
    * @param value the value to set.
    */
-  public void setExpediente(pe.congreso.leyes.Expediente value) {
+  public void setExpediente(openpolitica.congreso.leyes.Expediente value) {
     this.expediente = value;
   }
 
@@ -512,7 +512,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    * Gets the value of the 'ley' field.
    * @return The value of the 'ley' field.
    */
-  public pe.congreso.leyes.Ley getLey() {
+  public openpolitica.congreso.leyes.Ley getLey() {
     return ley;
   }
 
@@ -521,7 +521,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    * Sets the value of the 'ley' field.
    * @param value the value to set.
    */
-  public void setLey(pe.congreso.leyes.Ley value) {
+  public void setLey(openpolitica.congreso.leyes.Ley value) {
     this.ley = value;
   }
 
@@ -529,7 +529,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    * Gets the value of the 'enlaces' field.
    * @return The value of the 'enlaces' field.
    */
-  public pe.congreso.leyes.Enlaces getEnlaces() {
+  public openpolitica.congreso.leyes.Enlaces getEnlaces() {
     return enlaces;
   }
 
@@ -538,7 +538,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    * Sets the value of the 'enlaces' field.
    * @param value the value to set.
    */
-  public void setEnlaces(pe.congreso.leyes.Enlaces value) {
+  public void setEnlaces(openpolitica.congreso.leyes.Enlaces value) {
     this.enlaces = value;
   }
 
@@ -546,8 +546,8 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    * Creates a new ProyectoLey RecordBuilder.
    * @return A new ProyectoLey RecordBuilder
    */
-  public static pe.congreso.leyes.ProyectoLey.Builder newBuilder() {
-    return new pe.congreso.leyes.ProyectoLey.Builder();
+  public static openpolitica.congreso.leyes.ProyectoLey.Builder newBuilder() {
+    return new openpolitica.congreso.leyes.ProyectoLey.Builder();
   }
 
   /**
@@ -555,11 +555,11 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    * @param other The existing builder to copy.
    * @return A new ProyectoLey RecordBuilder
    */
-  public static pe.congreso.leyes.ProyectoLey.Builder newBuilder(pe.congreso.leyes.ProyectoLey.Builder other) {
+  public static openpolitica.congreso.leyes.ProyectoLey.Builder newBuilder(openpolitica.congreso.leyes.ProyectoLey.Builder other) {
     if (other == null) {
-      return new pe.congreso.leyes.ProyectoLey.Builder();
+      return new openpolitica.congreso.leyes.ProyectoLey.Builder();
     } else {
-      return new pe.congreso.leyes.ProyectoLey.Builder(other);
+      return new openpolitica.congreso.leyes.ProyectoLey.Builder(other);
     }
   }
 
@@ -568,11 +568,11 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
    * @param other The existing instance to copy.
    * @return A new ProyectoLey RecordBuilder
    */
-  public static pe.congreso.leyes.ProyectoLey.Builder newBuilder(pe.congreso.leyes.ProyectoLey other) {
+  public static openpolitica.congreso.leyes.ProyectoLey.Builder newBuilder(openpolitica.congreso.leyes.ProyectoLey other) {
     if (other == null) {
-      return new pe.congreso.leyes.ProyectoLey.Builder();
+      return new openpolitica.congreso.leyes.ProyectoLey.Builder();
     } else {
-      return new pe.congreso.leyes.ProyectoLey.Builder(other);
+      return new openpolitica.congreso.leyes.ProyectoLey.Builder(other);
     }
   }
 
@@ -595,17 +595,17 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
     private java.lang.String proponente;
     private java.lang.String grupo_parlamentario;
     private java.util.List<java.lang.String> iniciativas_agrupadas;
-    private java.util.List<pe.congreso.leyes.Congresista> autores;
+    private java.util.List<openpolitica.congreso.leyes.Congresista> autores;
     private java.util.List<java.lang.String> adherentes;
     private java.lang.String seguimiento_texto;
-    private java.util.List<pe.congreso.leyes.Seguimiento> seguimiento;
+    private java.util.List<openpolitica.congreso.leyes.Seguimiento> seguimiento;
     private java.util.List<java.lang.String> sectores;
-    private pe.congreso.leyes.Expediente expediente;
-    private pe.congreso.leyes.Expediente.Builder expedienteBuilder;
-    private pe.congreso.leyes.Ley ley;
-    private pe.congreso.leyes.Ley.Builder leyBuilder;
-    private pe.congreso.leyes.Enlaces enlaces;
-    private pe.congreso.leyes.Enlaces.Builder enlacesBuilder;
+    private openpolitica.congreso.leyes.Expediente expediente;
+    private openpolitica.congreso.leyes.Expediente.Builder expedienteBuilder;
+    private openpolitica.congreso.leyes.Ley ley;
+    private openpolitica.congreso.leyes.Ley.Builder leyBuilder;
+    private openpolitica.congreso.leyes.Enlaces enlaces;
+    private openpolitica.congreso.leyes.Enlaces.Builder enlacesBuilder;
 
     /** Creates a new Builder */
     private Builder() {
@@ -616,7 +616,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(pe.congreso.leyes.ProyectoLey.Builder other) {
+    private Builder(openpolitica.congreso.leyes.ProyectoLey.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.periodo)) {
         this.periodo = data().deepCopy(fields()[0].schema(), other.periodo);
@@ -691,21 +691,21 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
         fieldSetFlags()[17] = other.fieldSetFlags()[17];
       }
       if (other.hasExpedienteBuilder()) {
-        this.expedienteBuilder = pe.congreso.leyes.Expediente.newBuilder(other.getExpedienteBuilder());
+        this.expedienteBuilder = openpolitica.congreso.leyes.Expediente.newBuilder(other.getExpedienteBuilder());
       }
       if (isValidValue(fields()[18], other.ley)) {
         this.ley = data().deepCopy(fields()[18].schema(), other.ley);
         fieldSetFlags()[18] = other.fieldSetFlags()[18];
       }
       if (other.hasLeyBuilder()) {
-        this.leyBuilder = pe.congreso.leyes.Ley.newBuilder(other.getLeyBuilder());
+        this.leyBuilder = openpolitica.congreso.leyes.Ley.newBuilder(other.getLeyBuilder());
       }
       if (isValidValue(fields()[19], other.enlaces)) {
         this.enlaces = data().deepCopy(fields()[19].schema(), other.enlaces);
         fieldSetFlags()[19] = other.fieldSetFlags()[19];
       }
       if (other.hasEnlacesBuilder()) {
-        this.enlacesBuilder = pe.congreso.leyes.Enlaces.newBuilder(other.getEnlacesBuilder());
+        this.enlacesBuilder = openpolitica.congreso.leyes.Enlaces.newBuilder(other.getEnlacesBuilder());
       }
     }
 
@@ -713,7 +713,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
      * Creates a Builder by copying an existing ProyectoLey instance
      * @param other The existing instance to copy.
      */
-    private Builder(pe.congreso.leyes.ProyectoLey other) {
+    private Builder(openpolitica.congreso.leyes.ProyectoLey other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.periodo)) {
         this.periodo = data().deepCopy(fields()[0].schema(), other.periodo);
@@ -814,7 +814,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'periodo'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setPeriodo(java.lang.String value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setPeriodo(java.lang.String value) {
       validate(fields()[0], value);
       this.periodo = value;
       fieldSetFlags()[0] = true;
@@ -834,7 +834,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'periodo' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearPeriodo() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearPeriodo() {
       periodo = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -854,7 +854,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'periodo_numero'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setPeriodoNumero(java.lang.String value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setPeriodoNumero(java.lang.String value) {
       validate(fields()[1], value);
       this.periodo_numero = value;
       fieldSetFlags()[1] = true;
@@ -874,7 +874,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'periodo_numero' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearPeriodoNumero() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearPeriodoNumero() {
       periodo_numero = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -894,7 +894,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'estado'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setEstado(java.lang.String value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setEstado(java.lang.String value) {
       validate(fields()[2], value);
       this.estado = value;
       fieldSetFlags()[2] = true;
@@ -914,7 +914,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'estado' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearEstado() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearEstado() {
       estado = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -934,7 +934,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'publicacion_fecha'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setPublicacionFecha(long value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setPublicacionFecha(long value) {
       validate(fields()[3], value);
       this.publicacion_fecha = value;
       fieldSetFlags()[3] = true;
@@ -954,7 +954,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'publicacion_fecha' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearPublicacionFecha() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearPublicacionFecha() {
       fieldSetFlags()[3] = false;
       return this;
     }
@@ -973,7 +973,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'actualizacion_fecha'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setActualizacionFecha(java.lang.Long value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setActualizacionFecha(java.lang.Long value) {
       validate(fields()[4], value);
       this.actualizacion_fecha = value;
       fieldSetFlags()[4] = true;
@@ -993,7 +993,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'actualizacion_fecha' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearActualizacionFecha() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearActualizacionFecha() {
       actualizacion_fecha = null;
       fieldSetFlags()[4] = false;
       return this;
@@ -1013,7 +1013,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'numero_unico'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setNumeroUnico(java.lang.String value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setNumeroUnico(java.lang.String value) {
       validate(fields()[5], value);
       this.numero_unico = value;
       fieldSetFlags()[5] = true;
@@ -1033,7 +1033,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'numero_unico' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearNumeroUnico() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearNumeroUnico() {
       numero_unico = null;
       fieldSetFlags()[5] = false;
       return this;
@@ -1053,7 +1053,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'titulo'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setTitulo(java.lang.String value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setTitulo(java.lang.String value) {
       validate(fields()[6], value);
       this.titulo = value;
       fieldSetFlags()[6] = true;
@@ -1073,7 +1073,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'titulo' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearTitulo() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearTitulo() {
       titulo = null;
       fieldSetFlags()[6] = false;
       return this;
@@ -1093,7 +1093,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'sumilla'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setSumilla(java.lang.String value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setSumilla(java.lang.String value) {
       validate(fields()[7], value);
       this.sumilla = value;
       fieldSetFlags()[7] = true;
@@ -1113,7 +1113,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'sumilla' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearSumilla() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearSumilla() {
       sumilla = null;
       fieldSetFlags()[7] = false;
       return this;
@@ -1133,7 +1133,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'legislatura'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setLegislatura(java.lang.String value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setLegislatura(java.lang.String value) {
       validate(fields()[8], value);
       this.legislatura = value;
       fieldSetFlags()[8] = true;
@@ -1153,7 +1153,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'legislatura' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearLegislatura() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearLegislatura() {
       legislatura = null;
       fieldSetFlags()[8] = false;
       return this;
@@ -1173,7 +1173,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'proponente'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setProponente(java.lang.String value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setProponente(java.lang.String value) {
       validate(fields()[9], value);
       this.proponente = value;
       fieldSetFlags()[9] = true;
@@ -1193,7 +1193,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'proponente' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearProponente() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearProponente() {
       proponente = null;
       fieldSetFlags()[9] = false;
       return this;
@@ -1213,7 +1213,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'grupo_parlamentario'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setGrupoParlamentario(java.lang.String value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setGrupoParlamentario(java.lang.String value) {
       validate(fields()[10], value);
       this.grupo_parlamentario = value;
       fieldSetFlags()[10] = true;
@@ -1233,7 +1233,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'grupo_parlamentario' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearGrupoParlamentario() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearGrupoParlamentario() {
       grupo_parlamentario = null;
       fieldSetFlags()[10] = false;
       return this;
@@ -1253,7 +1253,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'iniciativas_agrupadas'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setIniciativasAgrupadas(java.util.List<java.lang.String> value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setIniciativasAgrupadas(java.util.List<java.lang.String> value) {
       validate(fields()[11], value);
       this.iniciativas_agrupadas = value;
       fieldSetFlags()[11] = true;
@@ -1273,7 +1273,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'iniciativas_agrupadas' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearIniciativasAgrupadas() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearIniciativasAgrupadas() {
       iniciativas_agrupadas = null;
       fieldSetFlags()[11] = false;
       return this;
@@ -1283,7 +1283,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'autores' field.
       * @return The value.
       */
-    public java.util.List<pe.congreso.leyes.Congresista> getAutores() {
+    public java.util.List<openpolitica.congreso.leyes.Congresista> getAutores() {
       return autores;
     }
 
@@ -1293,7 +1293,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'autores'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setAutores(java.util.List<pe.congreso.leyes.Congresista> value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setAutores(java.util.List<openpolitica.congreso.leyes.Congresista> value) {
       validate(fields()[12], value);
       this.autores = value;
       fieldSetFlags()[12] = true;
@@ -1313,7 +1313,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'autores' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearAutores() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearAutores() {
       autores = null;
       fieldSetFlags()[12] = false;
       return this;
@@ -1333,7 +1333,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'adherentes'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setAdherentes(java.util.List<java.lang.String> value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setAdherentes(java.util.List<java.lang.String> value) {
       validate(fields()[13], value);
       this.adherentes = value;
       fieldSetFlags()[13] = true;
@@ -1353,7 +1353,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'adherentes' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearAdherentes() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearAdherentes() {
       adherentes = null;
       fieldSetFlags()[13] = false;
       return this;
@@ -1373,7 +1373,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'seguimiento_texto'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setSeguimientoTexto(java.lang.String value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setSeguimientoTexto(java.lang.String value) {
       validate(fields()[14], value);
       this.seguimiento_texto = value;
       fieldSetFlags()[14] = true;
@@ -1393,7 +1393,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'seguimiento_texto' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearSeguimientoTexto() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearSeguimientoTexto() {
       seguimiento_texto = null;
       fieldSetFlags()[14] = false;
       return this;
@@ -1403,7 +1403,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'seguimiento' field.
       * @return The value.
       */
-    public java.util.List<pe.congreso.leyes.Seguimiento> getSeguimiento() {
+    public java.util.List<openpolitica.congreso.leyes.Seguimiento> getSeguimiento() {
       return seguimiento;
     }
 
@@ -1413,7 +1413,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'seguimiento'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setSeguimiento(java.util.List<pe.congreso.leyes.Seguimiento> value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setSeguimiento(java.util.List<openpolitica.congreso.leyes.Seguimiento> value) {
       validate(fields()[15], value);
       this.seguimiento = value;
       fieldSetFlags()[15] = true;
@@ -1433,7 +1433,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'seguimiento' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearSeguimiento() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearSeguimiento() {
       seguimiento = null;
       fieldSetFlags()[15] = false;
       return this;
@@ -1453,7 +1453,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'sectores'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setSectores(java.util.List<java.lang.String> value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setSectores(java.util.List<java.lang.String> value) {
       validate(fields()[16], value);
       this.sectores = value;
       fieldSetFlags()[16] = true;
@@ -1473,7 +1473,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'sectores' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearSectores() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearSectores() {
       sectores = null;
       fieldSetFlags()[16] = false;
       return this;
@@ -1483,7 +1483,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'expediente' field.
       * @return The value.
       */
-    public pe.congreso.leyes.Expediente getExpediente() {
+    public openpolitica.congreso.leyes.Expediente getExpediente() {
       return expediente;
     }
 
@@ -1493,7 +1493,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'expediente'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setExpediente(pe.congreso.leyes.Expediente value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setExpediente(openpolitica.congreso.leyes.Expediente value) {
       validate(fields()[17], value);
       this.expedienteBuilder = null;
       this.expediente = value;
@@ -1513,12 +1513,12 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
      * Gets the Builder instance for the 'expediente' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public pe.congreso.leyes.Expediente.Builder getExpedienteBuilder() {
+    public openpolitica.congreso.leyes.Expediente.Builder getExpedienteBuilder() {
       if (expedienteBuilder == null) {
         if (hasExpediente()) {
-          setExpedienteBuilder(pe.congreso.leyes.Expediente.newBuilder(expediente));
+          setExpedienteBuilder(openpolitica.congreso.leyes.Expediente.newBuilder(expediente));
         } else {
-          setExpedienteBuilder(pe.congreso.leyes.Expediente.newBuilder());
+          setExpedienteBuilder(openpolitica.congreso.leyes.Expediente.newBuilder());
         }
       }
       return expedienteBuilder;
@@ -1530,7 +1530,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
      * @return This builder.
      */
 
-    public pe.congreso.leyes.ProyectoLey.Builder setExpedienteBuilder(pe.congreso.leyes.Expediente.Builder value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setExpedienteBuilder(openpolitica.congreso.leyes.Expediente.Builder value) {
       clearExpediente();
       expedienteBuilder = value;
       return this;
@@ -1548,7 +1548,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'expediente' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearExpediente() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearExpediente() {
       expediente = null;
       expedienteBuilder = null;
       fieldSetFlags()[17] = false;
@@ -1559,7 +1559,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'ley' field.
       * @return The value.
       */
-    public pe.congreso.leyes.Ley getLey() {
+    public openpolitica.congreso.leyes.Ley getLey() {
       return ley;
     }
 
@@ -1569,7 +1569,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'ley'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setLey(pe.congreso.leyes.Ley value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setLey(openpolitica.congreso.leyes.Ley value) {
       validate(fields()[18], value);
       this.leyBuilder = null;
       this.ley = value;
@@ -1589,12 +1589,12 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
      * Gets the Builder instance for the 'ley' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public pe.congreso.leyes.Ley.Builder getLeyBuilder() {
+    public openpolitica.congreso.leyes.Ley.Builder getLeyBuilder() {
       if (leyBuilder == null) {
         if (hasLey()) {
-          setLeyBuilder(pe.congreso.leyes.Ley.newBuilder(ley));
+          setLeyBuilder(openpolitica.congreso.leyes.Ley.newBuilder(ley));
         } else {
-          setLeyBuilder(pe.congreso.leyes.Ley.newBuilder());
+          setLeyBuilder(openpolitica.congreso.leyes.Ley.newBuilder());
         }
       }
       return leyBuilder;
@@ -1606,7 +1606,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
      * @return This builder.
      */
 
-    public pe.congreso.leyes.ProyectoLey.Builder setLeyBuilder(pe.congreso.leyes.Ley.Builder value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setLeyBuilder(openpolitica.congreso.leyes.Ley.Builder value) {
       clearLey();
       leyBuilder = value;
       return this;
@@ -1624,7 +1624,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'ley' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearLey() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearLey() {
       ley = null;
       leyBuilder = null;
       fieldSetFlags()[18] = false;
@@ -1635,7 +1635,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'enlaces' field.
       * @return The value.
       */
-    public pe.congreso.leyes.Enlaces getEnlaces() {
+    public openpolitica.congreso.leyes.Enlaces getEnlaces() {
       return enlaces;
     }
 
@@ -1645,7 +1645,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'enlaces'.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder setEnlaces(pe.congreso.leyes.Enlaces value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setEnlaces(openpolitica.congreso.leyes.Enlaces value) {
       validate(fields()[19], value);
       this.enlacesBuilder = null;
       this.enlaces = value;
@@ -1665,12 +1665,12 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
      * Gets the Builder instance for the 'enlaces' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public pe.congreso.leyes.Enlaces.Builder getEnlacesBuilder() {
+    public openpolitica.congreso.leyes.Enlaces.Builder getEnlacesBuilder() {
       if (enlacesBuilder == null) {
         if (hasEnlaces()) {
-          setEnlacesBuilder(pe.congreso.leyes.Enlaces.newBuilder(enlaces));
+          setEnlacesBuilder(openpolitica.congreso.leyes.Enlaces.newBuilder(enlaces));
         } else {
-          setEnlacesBuilder(pe.congreso.leyes.Enlaces.newBuilder());
+          setEnlacesBuilder(openpolitica.congreso.leyes.Enlaces.newBuilder());
         }
       }
       return enlacesBuilder;
@@ -1682,7 +1682,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
      * @return This builder.
      */
 
-    public pe.congreso.leyes.ProyectoLey.Builder setEnlacesBuilder(pe.congreso.leyes.Enlaces.Builder value) {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder setEnlacesBuilder(openpolitica.congreso.leyes.Enlaces.Builder value) {
       clearEnlaces();
       enlacesBuilder = value;
       return this;
@@ -1700,7 +1700,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'enlaces' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.ProyectoLey.Builder clearEnlaces() {
+    public openpolitica.congreso.leyes.ProyectoLey.Builder clearEnlaces() {
       enlaces = null;
       enlacesBuilder = null;
       fieldSetFlags()[19] = false;
@@ -1724,10 +1724,10 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
         record.proponente = fieldSetFlags()[9] ? this.proponente : (java.lang.String) defaultValue(fields()[9]);
         record.grupo_parlamentario = fieldSetFlags()[10] ? this.grupo_parlamentario : (java.lang.String) defaultValue(fields()[10]);
         record.iniciativas_agrupadas = fieldSetFlags()[11] ? this.iniciativas_agrupadas : (java.util.List<java.lang.String>) defaultValue(fields()[11]);
-        record.autores = fieldSetFlags()[12] ? this.autores : (java.util.List<pe.congreso.leyes.Congresista>) defaultValue(fields()[12]);
+        record.autores = fieldSetFlags()[12] ? this.autores : (java.util.List<openpolitica.congreso.leyes.Congresista>) defaultValue(fields()[12]);
         record.adherentes = fieldSetFlags()[13] ? this.adherentes : (java.util.List<java.lang.String>) defaultValue(fields()[13]);
         record.seguimiento_texto = fieldSetFlags()[14] ? this.seguimiento_texto : (java.lang.String) defaultValue(fields()[14]);
-        record.seguimiento = fieldSetFlags()[15] ? this.seguimiento : (java.util.List<pe.congreso.leyes.Seguimiento>) defaultValue(fields()[15]);
+        record.seguimiento = fieldSetFlags()[15] ? this.seguimiento : (java.util.List<openpolitica.congreso.leyes.Seguimiento>) defaultValue(fields()[15]);
         record.sectores = fieldSetFlags()[16] ? this.sectores : (java.util.List<java.lang.String>) defaultValue(fields()[16]);
         if (expedienteBuilder != null) {
           try {
@@ -1737,7 +1737,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
             throw e;
           }
         } else {
-          record.expediente = fieldSetFlags()[17] ? this.expediente : (pe.congreso.leyes.Expediente) defaultValue(fields()[17]);
+          record.expediente = fieldSetFlags()[17] ? this.expediente : (openpolitica.congreso.leyes.Expediente) defaultValue(fields()[17]);
         }
         if (leyBuilder != null) {
           try {
@@ -1747,7 +1747,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
             throw e;
           }
         } else {
-          record.ley = fieldSetFlags()[18] ? this.ley : (pe.congreso.leyes.Ley) defaultValue(fields()[18]);
+          record.ley = fieldSetFlags()[18] ? this.ley : (openpolitica.congreso.leyes.Ley) defaultValue(fields()[18]);
         }
         if (enlacesBuilder != null) {
           try {
@@ -1757,7 +1757,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
             throw e;
           }
         } else {
-          record.enlaces = fieldSetFlags()[19] ? this.enlaces : (pe.congreso.leyes.Enlaces) defaultValue(fields()[19]);
+          record.enlaces = fieldSetFlags()[19] ? this.enlaces : (openpolitica.congreso.leyes.Enlaces) defaultValue(fields()[19]);
         }
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
@@ -1854,7 +1854,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
     out.writeArrayStart();
     out.setItemCount(size1);
     long actualSize1 = 0;
-    for (pe.congreso.leyes.Congresista e1: this.autores) {
+    for (openpolitica.congreso.leyes.Congresista e1: this.autores) {
       actualSize1++;
       out.startItem();
       e1.customEncode(out);
@@ -1882,7 +1882,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
     out.writeArrayStart();
     out.setItemCount(size3);
     long actualSize3 = 0;
-    for (pe.congreso.leyes.Seguimiento e3: this.seguimiento) {
+    for (openpolitica.congreso.leyes.Seguimiento e3: this.seguimiento) {
       actualSize3++;
       out.startItem();
       e3.customEncode(out);
@@ -1987,17 +1987,17 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       }
 
       long size1 = in.readArrayStart();
-      java.util.List<pe.congreso.leyes.Congresista> a1 = this.autores;
+      java.util.List<openpolitica.congreso.leyes.Congresista> a1 = this.autores;
       if (a1 == null) {
-        a1 = new SpecificData.Array<pe.congreso.leyes.Congresista>((int)size1, SCHEMA$.getField("autores").schema());
+        a1 = new SpecificData.Array<openpolitica.congreso.leyes.Congresista>((int)size1, SCHEMA$.getField("autores").schema());
         this.autores = a1;
       } else a1.clear();
-      SpecificData.Array<pe.congreso.leyes.Congresista> ga1 = (a1 instanceof SpecificData.Array ? (SpecificData.Array<pe.congreso.leyes.Congresista>)a1 : null);
+      SpecificData.Array<openpolitica.congreso.leyes.Congresista> ga1 = (a1 instanceof SpecificData.Array ? (SpecificData.Array<openpolitica.congreso.leyes.Congresista>)a1 : null);
       for ( ; 0 < size1; size1 = in.arrayNext()) {
         for ( ; size1 != 0; size1--) {
-          pe.congreso.leyes.Congresista e1 = (ga1 != null ? ga1.peek() : null);
+          openpolitica.congreso.leyes.Congresista e1 = (ga1 != null ? ga1.peek() : null);
           if (e1 == null) {
-            e1 = new pe.congreso.leyes.Congresista();
+            e1 = new openpolitica.congreso.leyes.Congresista();
           }
           e1.customDecode(in);
           a1.add(e1);
@@ -2022,17 +2022,17 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
       this.seguimiento_texto = in.readString();
 
       long size3 = in.readArrayStart();
-      java.util.List<pe.congreso.leyes.Seguimiento> a3 = this.seguimiento;
+      java.util.List<openpolitica.congreso.leyes.Seguimiento> a3 = this.seguimiento;
       if (a3 == null) {
-        a3 = new SpecificData.Array<pe.congreso.leyes.Seguimiento>((int)size3, SCHEMA$.getField("seguimiento").schema());
+        a3 = new SpecificData.Array<openpolitica.congreso.leyes.Seguimiento>((int)size3, SCHEMA$.getField("seguimiento").schema());
         this.seguimiento = a3;
       } else a3.clear();
-      SpecificData.Array<pe.congreso.leyes.Seguimiento> ga3 = (a3 instanceof SpecificData.Array ? (SpecificData.Array<pe.congreso.leyes.Seguimiento>)a3 : null);
+      SpecificData.Array<openpolitica.congreso.leyes.Seguimiento> ga3 = (a3 instanceof SpecificData.Array ? (SpecificData.Array<openpolitica.congreso.leyes.Seguimiento>)a3 : null);
       for ( ; 0 < size3; size3 = in.arrayNext()) {
         for ( ; size3 != 0; size3--) {
-          pe.congreso.leyes.Seguimiento e3 = (ga3 != null ? ga3.peek() : null);
+          openpolitica.congreso.leyes.Seguimiento e3 = (ga3 != null ? ga3.peek() : null);
           if (e3 == null) {
-            e3 = new pe.congreso.leyes.Seguimiento();
+            e3 = new openpolitica.congreso.leyes.Seguimiento();
           }
           e3.customDecode(in);
           a3.add(e3);
@@ -2059,7 +2059,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
         this.expediente = null;
       } else {
         if (this.expediente == null) {
-          this.expediente = new pe.congreso.leyes.Expediente();
+          this.expediente = new openpolitica.congreso.leyes.Expediente();
         }
         this.expediente.customDecode(in);
       }
@@ -2069,13 +2069,13 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
         this.ley = null;
       } else {
         if (this.ley == null) {
-          this.ley = new pe.congreso.leyes.Ley();
+          this.ley = new openpolitica.congreso.leyes.Ley();
         }
         this.ley.customDecode(in);
       }
 
       if (this.enlaces == null) {
-        this.enlaces = new pe.congreso.leyes.Enlaces();
+        this.enlaces = new openpolitica.congreso.leyes.Enlaces();
       }
       this.enlaces.customDecode(in);
 
@@ -2165,17 +2165,17 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
 
         case 12:
           long size1 = in.readArrayStart();
-          java.util.List<pe.congreso.leyes.Congresista> a1 = this.autores;
+          java.util.List<openpolitica.congreso.leyes.Congresista> a1 = this.autores;
           if (a1 == null) {
-            a1 = new SpecificData.Array<pe.congreso.leyes.Congresista>((int)size1, SCHEMA$.getField("autores").schema());
+            a1 = new SpecificData.Array<openpolitica.congreso.leyes.Congresista>((int)size1, SCHEMA$.getField("autores").schema());
             this.autores = a1;
           } else a1.clear();
-          SpecificData.Array<pe.congreso.leyes.Congresista> ga1 = (a1 instanceof SpecificData.Array ? (SpecificData.Array<pe.congreso.leyes.Congresista>)a1 : null);
+          SpecificData.Array<openpolitica.congreso.leyes.Congresista> ga1 = (a1 instanceof SpecificData.Array ? (SpecificData.Array<openpolitica.congreso.leyes.Congresista>)a1 : null);
           for ( ; 0 < size1; size1 = in.arrayNext()) {
             for ( ; size1 != 0; size1--) {
-              pe.congreso.leyes.Congresista e1 = (ga1 != null ? ga1.peek() : null);
+              openpolitica.congreso.leyes.Congresista e1 = (ga1 != null ? ga1.peek() : null);
               if (e1 == null) {
-                e1 = new pe.congreso.leyes.Congresista();
+                e1 = new openpolitica.congreso.leyes.Congresista();
               }
               e1.customDecode(in);
               a1.add(e1);
@@ -2206,17 +2206,17 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
 
         case 15:
           long size3 = in.readArrayStart();
-          java.util.List<pe.congreso.leyes.Seguimiento> a3 = this.seguimiento;
+          java.util.List<openpolitica.congreso.leyes.Seguimiento> a3 = this.seguimiento;
           if (a3 == null) {
-            a3 = new SpecificData.Array<pe.congreso.leyes.Seguimiento>((int)size3, SCHEMA$.getField("seguimiento").schema());
+            a3 = new SpecificData.Array<openpolitica.congreso.leyes.Seguimiento>((int)size3, SCHEMA$.getField("seguimiento").schema());
             this.seguimiento = a3;
           } else a3.clear();
-          SpecificData.Array<pe.congreso.leyes.Seguimiento> ga3 = (a3 instanceof SpecificData.Array ? (SpecificData.Array<pe.congreso.leyes.Seguimiento>)a3 : null);
+          SpecificData.Array<openpolitica.congreso.leyes.Seguimiento> ga3 = (a3 instanceof SpecificData.Array ? (SpecificData.Array<openpolitica.congreso.leyes.Seguimiento>)a3 : null);
           for ( ; 0 < size3; size3 = in.arrayNext()) {
             for ( ; size3 != 0; size3--) {
-              pe.congreso.leyes.Seguimiento e3 = (ga3 != null ? ga3.peek() : null);
+              openpolitica.congreso.leyes.Seguimiento e3 = (ga3 != null ? ga3.peek() : null);
               if (e3 == null) {
-                e3 = new pe.congreso.leyes.Seguimiento();
+                e3 = new openpolitica.congreso.leyes.Seguimiento();
               }
               e3.customDecode(in);
               a3.add(e3);
@@ -2247,7 +2247,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
             this.expediente = null;
           } else {
             if (this.expediente == null) {
-              this.expediente = new pe.congreso.leyes.Expediente();
+              this.expediente = new openpolitica.congreso.leyes.Expediente();
             }
             this.expediente.customDecode(in);
           }
@@ -2259,7 +2259,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
             this.ley = null;
           } else {
             if (this.ley == null) {
-              this.ley = new pe.congreso.leyes.Ley();
+              this.ley = new openpolitica.congreso.leyes.Ley();
             }
             this.ley.customDecode(in);
           }
@@ -2267,7 +2267,7 @@ public class ProyectoLey extends org.apache.avro.specific.SpecificRecordBase imp
 
         case 19:
           if (this.enlaces == null) {
-            this.enlaces = new pe.congreso.leyes.Enlaces();
+            this.enlaces = new openpolitica.congreso.leyes.Enlaces();
           }
           this.enlaces.customDecode(in);
           break;

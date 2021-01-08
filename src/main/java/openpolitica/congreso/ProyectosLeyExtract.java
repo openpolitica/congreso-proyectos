@@ -1,4 +1,4 @@
-package openpolitica.data.congreso;
+package openpolitica.congreso;
 
 import io.github.resilience4j.retry.Retry;
 import io.github.resilience4j.retry.RetryConfig;
@@ -17,6 +17,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
+import openpolitica.congreso.leyes.Congresista;
+import openpolitica.congreso.leyes.Documento;
+import openpolitica.congreso.leyes.Enlaces;
+import openpolitica.congreso.leyes.Expediente;
+import openpolitica.congreso.leyes.Ley;
+import openpolitica.congreso.leyes.ProyectoLey;
+import openpolitica.congreso.leyes.Seguimiento;
 import org.apache.avro.file.CodecFactory;
 import org.apache.avro.file.DataFileReader;
 import org.apache.avro.file.DataFileWriter;
@@ -28,13 +35,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pe.congreso.leyes.Congresista;
-import pe.congreso.leyes.Documento;
-import pe.congreso.leyes.Enlaces;
-import pe.congreso.leyes.Expediente;
-import pe.congreso.leyes.Ley;
-import pe.congreso.leyes.ProyectoLey;
-import pe.congreso.leyes.Seguimiento;
 
 import static java.util.stream.Collectors.toList;
 

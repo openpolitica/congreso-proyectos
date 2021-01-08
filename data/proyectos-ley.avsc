@@ -1,7 +1,7 @@
 {
   "name": "ProyectoLey",
   "type": "record",
-  "namespace": "pe.congreso.leyes",
+  "namespace": "openpolitica.congreso.leyes",
   "fields": [
     {
       "name": "periodo",

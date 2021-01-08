@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package pe.congreso.leyes;
+package openpolitica.congreso.leyes;
 
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Expediente extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3005791621661992049L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Expediente\",\"namespace\":\"pe.congreso.leyes\",\"fields\":[{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"subtitulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"documentos\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Documento\",\"fields\":[{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"tipo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"url\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"fecha\",\"type\":[\"long\",\"null\"]}]}}}]}");
+  private static final long serialVersionUID = -4754082831784499338L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Expediente\",\"namespace\":\"openpolitica.congreso.leyes\",\"fields\":[{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"subtitulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"documentos\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Documento\",\"fields\":[{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"tipo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"url\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"fecha\",\"type\":[\"long\",\"null\"]}]}}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -73,7 +73,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
    private java.lang.String titulo;
    private java.lang.String subtitulo;
-   private java.util.List<pe.congreso.leyes.Documento> documentos;
+   private java.util.List<openpolitica.congreso.leyes.Documento> documentos;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -88,7 +88,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
    * @param subtitulo The new value for subtitulo
    * @param documentos The new value for documentos
    */
-  public Expediente(java.lang.String titulo, java.lang.String subtitulo, java.util.List<pe.congreso.leyes.Documento> documentos) {
+  public Expediente(java.lang.String titulo, java.lang.String subtitulo, java.util.List<openpolitica.congreso.leyes.Documento> documentos) {
     this.titulo = titulo;
     this.subtitulo = subtitulo;
     this.documentos = documentos;
@@ -112,7 +112,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
     switch (field$) {
     case 0: titulo = value$ != null ? value$.toString() : null; break;
     case 1: subtitulo = value$ != null ? value$.toString() : null; break;
-    case 2: documentos = (java.util.List<pe.congreso.leyes.Documento>)value$; break;
+    case 2: documentos = (java.util.List<openpolitica.congreso.leyes.Documento>)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -155,7 +155,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'documentos' field.
    * @return The value of the 'documentos' field.
    */
-  public java.util.List<pe.congreso.leyes.Documento> getDocumentos() {
+  public java.util.List<openpolitica.congreso.leyes.Documento> getDocumentos() {
     return documentos;
   }
 
@@ -164,7 +164,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'documentos' field.
    * @param value the value to set.
    */
-  public void setDocumentos(java.util.List<pe.congreso.leyes.Documento> value) {
+  public void setDocumentos(java.util.List<openpolitica.congreso.leyes.Documento> value) {
     this.documentos = value;
   }
 
@@ -172,8 +172,8 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
    * Creates a new Expediente RecordBuilder.
    * @return A new Expediente RecordBuilder
    */
-  public static pe.congreso.leyes.Expediente.Builder newBuilder() {
-    return new pe.congreso.leyes.Expediente.Builder();
+  public static openpolitica.congreso.leyes.Expediente.Builder newBuilder() {
+    return new openpolitica.congreso.leyes.Expediente.Builder();
   }
 
   /**
@@ -181,11 +181,11 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
    * @param other The existing builder to copy.
    * @return A new Expediente RecordBuilder
    */
-  public static pe.congreso.leyes.Expediente.Builder newBuilder(pe.congreso.leyes.Expediente.Builder other) {
+  public static openpolitica.congreso.leyes.Expediente.Builder newBuilder(openpolitica.congreso.leyes.Expediente.Builder other) {
     if (other == null) {
-      return new pe.congreso.leyes.Expediente.Builder();
+      return new openpolitica.congreso.leyes.Expediente.Builder();
     } else {
-      return new pe.congreso.leyes.Expediente.Builder(other);
+      return new openpolitica.congreso.leyes.Expediente.Builder(other);
     }
   }
 
@@ -194,11 +194,11 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
    * @param other The existing instance to copy.
    * @return A new Expediente RecordBuilder
    */
-  public static pe.congreso.leyes.Expediente.Builder newBuilder(pe.congreso.leyes.Expediente other) {
+  public static openpolitica.congreso.leyes.Expediente.Builder newBuilder(openpolitica.congreso.leyes.Expediente other) {
     if (other == null) {
-      return new pe.congreso.leyes.Expediente.Builder();
+      return new openpolitica.congreso.leyes.Expediente.Builder();
     } else {
-      return new pe.congreso.leyes.Expediente.Builder(other);
+      return new openpolitica.congreso.leyes.Expediente.Builder(other);
     }
   }
 
@@ -211,7 +211,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
     private java.lang.String titulo;
     private java.lang.String subtitulo;
-    private java.util.List<pe.congreso.leyes.Documento> documentos;
+    private java.util.List<openpolitica.congreso.leyes.Documento> documentos;
 
     /** Creates a new Builder */
     private Builder() {
@@ -222,7 +222,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(pe.congreso.leyes.Expediente.Builder other) {
+    private Builder(openpolitica.congreso.leyes.Expediente.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.titulo)) {
         this.titulo = data().deepCopy(fields()[0].schema(), other.titulo);
@@ -242,7 +242,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
      * Creates a Builder by copying an existing Expediente instance
      * @param other The existing instance to copy.
      */
-    private Builder(pe.congreso.leyes.Expediente other) {
+    private Builder(openpolitica.congreso.leyes.Expediente other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.titulo)) {
         this.titulo = data().deepCopy(fields()[0].schema(), other.titulo);
@@ -272,7 +272,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'titulo'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Expediente.Builder setTitulo(java.lang.String value) {
+    public openpolitica.congreso.leyes.Expediente.Builder setTitulo(java.lang.String value) {
       validate(fields()[0], value);
       this.titulo = value;
       fieldSetFlags()[0] = true;
@@ -292,7 +292,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * Clears the value of the 'titulo' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Expediente.Builder clearTitulo() {
+    public openpolitica.congreso.leyes.Expediente.Builder clearTitulo() {
       titulo = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -312,7 +312,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'subtitulo'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Expediente.Builder setSubtitulo(java.lang.String value) {
+    public openpolitica.congreso.leyes.Expediente.Builder setSubtitulo(java.lang.String value) {
       validate(fields()[1], value);
       this.subtitulo = value;
       fieldSetFlags()[1] = true;
@@ -332,7 +332,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * Clears the value of the 'subtitulo' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Expediente.Builder clearSubtitulo() {
+    public openpolitica.congreso.leyes.Expediente.Builder clearSubtitulo() {
       subtitulo = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -342,7 +342,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * Gets the value of the 'documentos' field.
       * @return The value.
       */
-    public java.util.List<pe.congreso.leyes.Documento> getDocumentos() {
+    public java.util.List<openpolitica.congreso.leyes.Documento> getDocumentos() {
       return documentos;
     }
 
@@ -352,7 +352,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'documentos'.
       * @return This builder.
       */
-    public pe.congreso.leyes.Expediente.Builder setDocumentos(java.util.List<pe.congreso.leyes.Documento> value) {
+    public openpolitica.congreso.leyes.Expediente.Builder setDocumentos(java.util.List<openpolitica.congreso.leyes.Documento> value) {
       validate(fields()[2], value);
       this.documentos = value;
       fieldSetFlags()[2] = true;
@@ -372,7 +372,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * Clears the value of the 'documentos' field.
       * @return This builder.
       */
-    public pe.congreso.leyes.Expediente.Builder clearDocumentos() {
+    public openpolitica.congreso.leyes.Expediente.Builder clearDocumentos() {
       documentos = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -385,7 +385,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
         Expediente record = new Expediente();
         record.titulo = fieldSetFlags()[0] ? this.titulo : (java.lang.String) defaultValue(fields()[0]);
         record.subtitulo = fieldSetFlags()[1] ? this.subtitulo : (java.lang.String) defaultValue(fields()[1]);
-        record.documentos = fieldSetFlags()[2] ? this.documentos : (java.util.List<pe.congreso.leyes.Documento>) defaultValue(fields()[2]);
+        record.documentos = fieldSetFlags()[2] ? this.documentos : (java.util.List<openpolitica.congreso.leyes.Documento>) defaultValue(fields()[2]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -438,7 +438,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
     out.writeArrayStart();
     out.setItemCount(size0);
     long actualSize0 = 0;
-    for (pe.congreso.leyes.Documento e0: this.documentos) {
+    for (openpolitica.congreso.leyes.Documento e0: this.documentos) {
       actualSize0++;
       out.startItem();
       e0.customEncode(out);
@@ -469,17 +469,17 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       }
 
       long size0 = in.readArrayStart();
-      java.util.List<pe.congreso.leyes.Documento> a0 = this.documentos;
+      java.util.List<openpolitica.congreso.leyes.Documento> a0 = this.documentos;
       if (a0 == null) {
-        a0 = new SpecificData.Array<pe.congreso.leyes.Documento>((int)size0, SCHEMA$.getField("documentos").schema());
+        a0 = new SpecificData.Array<openpolitica.congreso.leyes.Documento>((int)size0, SCHEMA$.getField("documentos").schema());
         this.documentos = a0;
       } else a0.clear();
-      SpecificData.Array<pe.congreso.leyes.Documento> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<pe.congreso.leyes.Documento>)a0 : null);
+      SpecificData.Array<openpolitica.congreso.leyes.Documento> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<openpolitica.congreso.leyes.Documento>)a0 : null);
       for ( ; 0 < size0; size0 = in.arrayNext()) {
         for ( ; size0 != 0; size0--) {
-          pe.congreso.leyes.Documento e0 = (ga0 != null ? ga0.peek() : null);
+          openpolitica.congreso.leyes.Documento e0 = (ga0 != null ? ga0.peek() : null);
           if (e0 == null) {
-            e0 = new pe.congreso.leyes.Documento();
+            e0 = new openpolitica.congreso.leyes.Documento();
           }
           e0.customDecode(in);
           a0.add(e0);
@@ -509,17 +509,17 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
         case 2:
           long size0 = in.readArrayStart();
-          java.util.List<pe.congreso.leyes.Documento> a0 = this.documentos;
+          java.util.List<openpolitica.congreso.leyes.Documento> a0 = this.documentos;
           if (a0 == null) {
-            a0 = new SpecificData.Array<pe.congreso.leyes.Documento>((int)size0, SCHEMA$.getField("documentos").schema());
+            a0 = new SpecificData.Array<openpolitica.congreso.leyes.Documento>((int)size0, SCHEMA$.getField("documentos").schema());
             this.documentos = a0;
           } else a0.clear();
-          SpecificData.Array<pe.congreso.leyes.Documento> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<pe.congreso.leyes.Documento>)a0 : null);
+          SpecificData.Array<openpolitica.congreso.leyes.Documento> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<openpolitica.congreso.leyes.Documento>)a0 : null);
           for ( ; 0 < size0; size0 = in.arrayNext()) {
             for ( ; size0 != 0; size0--) {
-              pe.congreso.leyes.Documento e0 = (ga0 != null ? ga0.peek() : null);
+              openpolitica.congreso.leyes.Documento e0 = (ga0 != null ? ga0.peek() : null);
               if (e0 == null) {
-                e0 = new pe.congreso.leyes.Documento();
+                e0 = new openpolitica.congreso.leyes.Documento();
               }
               e0.customDecode(in);
               a0.add(e0);

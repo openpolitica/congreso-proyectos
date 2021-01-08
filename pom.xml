@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>openpolitica.data.congreso</groupId>
+  <groupId>openpolitica.congreso</groupId>
   <artifactId>congreso-proyectos</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -73,7 +73,7 @@
               <goal>schema</goal>
             </goals>
             <configuration>
-              <sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>
+              <sourceDirectory>${project.basedir}/data/</sourceDirectory>
               <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
               <stringType>String</stringType>
             </configuration>
