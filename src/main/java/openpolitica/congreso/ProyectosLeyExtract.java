@@ -115,7 +115,7 @@ public class ProyectosLeyExtract {
     return proyectos;
   }
 
-  void save(Path output, List<ProyectoLey> proyectos) throws IOException {
+  boolean save(Path output, List<ProyectoLey> proyectos) throws IOException {
     LOG.info("{} proyectos extraidos", proyectos.size());
     if (Files.isRegularFile(output)) {
       var reader = load(output);
@@ -127,7 +127,7 @@ public class ProyectosLeyExtract {
       LOG.info("{} proyectos actuales", current.size());
       if (current.equals(proyectos)) {
         LOG.info("Proyectos de ley no han cambiado");
-        return;
+        return false;
       }
     }
 
@@ -146,6 +146,8 @@ public class ProyectosLeyExtract {
         }
       });
     }
+
+    return true;
   }
 
   Map<String, Map<String, Object>> importarPagina(int index) {
@@ -530,7 +532,7 @@ public class ProyectosLeyExtract {
             var fecha = fecha(values.get(1));
             var builder = Documento.newBuilder()
                 .setTitulo(nombreDocumento)
-                .setUrl(referenciaDocumento)
+                .setEnlace(referenciaDocumento)
                 .setTipo(tipo)
                 .setFecha(fecha);
             var doc = builder.build();
@@ -540,7 +542,7 @@ public class ProyectosLeyExtract {
             var referenciaDocumento = element.getElementsByTag("a").attr("href");
             var doc = Documento.newBuilder()
                 .setTitulo(null)
-                .setUrl(referenciaDocumento)
+                .setEnlace(referenciaDocumento)
                 .setTipo(tipo)
                 .setFecha(null)
                 .build();
@@ -562,7 +564,7 @@ public class ProyectosLeyExtract {
 
           var builder = Documento.newBuilder()
               .setTitulo(nombreDocumento)
-              .setUrl(referenciaDocumento)
+              .setEnlace(referenciaDocumento)
               .setTipo(tipo)
               .setFecha(fecha);
           var doc = builder.build();
@@ -584,7 +586,7 @@ public class ProyectosLeyExtract {
           var fecha = fecha(values.get(0));
           var builder = Documento.newBuilder()
               .setTitulo(nombreDocumento)
-              .setUrl(referenciaDocumento)
+              .setEnlace(referenciaDocumento)
               .setTipo(tipo)
               .setFecha(fecha);
           var doc = builder.build();

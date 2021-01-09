@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Documento extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 857284723160063444L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Documento\",\"namespace\":\"openpolitica.congreso.leyes\",\"fields\":[{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"tipo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"url\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"fecha\",\"type\":[\"long\",\"null\"]}]}");
+  private static final long serialVersionUID = -5219024092272644479L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Documento\",\"namespace\":\"openpolitica.congreso.leyes\",\"fields\":[{\"name\":\"titulo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"tipo\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"enlace\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"fecha\",\"type\":[\"long\",\"null\"]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -73,7 +73,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
 
    private java.lang.String titulo;
    private java.lang.String tipo;
-   private java.lang.String url;
+   private java.lang.String enlace;
    private java.lang.Long fecha;
 
   /**
@@ -87,13 +87,13 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
    * All-args constructor.
    * @param titulo The new value for titulo
    * @param tipo The new value for tipo
-   * @param url The new value for url
+   * @param enlace The new value for enlace
    * @param fecha The new value for fecha
    */
-  public Documento(java.lang.String titulo, java.lang.String tipo, java.lang.String url, java.lang.Long fecha) {
+  public Documento(java.lang.String titulo, java.lang.String tipo, java.lang.String enlace, java.lang.Long fecha) {
     this.titulo = titulo;
     this.tipo = tipo;
-    this.url = url;
+    this.enlace = enlace;
     this.fecha = fecha;
   }
 
@@ -104,7 +104,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
     switch (field$) {
     case 0: return titulo;
     case 1: return tipo;
-    case 2: return url;
+    case 2: return enlace;
     case 3: return fecha;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
@@ -116,7 +116,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
     switch (field$) {
     case 0: titulo = value$ != null ? value$.toString() : null; break;
     case 1: tipo = value$ != null ? value$.toString() : null; break;
-    case 2: url = value$ != null ? value$.toString() : null; break;
+    case 2: enlace = value$ != null ? value$.toString() : null; break;
     case 3: fecha = (java.lang.Long)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
@@ -157,20 +157,20 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
   }
 
   /**
-   * Gets the value of the 'url' field.
-   * @return The value of the 'url' field.
+   * Gets the value of the 'enlace' field.
+   * @return The value of the 'enlace' field.
    */
-  public java.lang.String getUrl() {
-    return url;
+  public java.lang.String getEnlace() {
+    return enlace;
   }
 
 
   /**
-   * Sets the value of the 'url' field.
+   * Sets the value of the 'enlace' field.
    * @param value the value to set.
    */
-  public void setUrl(java.lang.String value) {
-    this.url = value;
+  public void setEnlace(java.lang.String value) {
+    this.enlace = value;
   }
 
   /**
@@ -233,7 +233,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
 
     private java.lang.String titulo;
     private java.lang.String tipo;
-    private java.lang.String url;
+    private java.lang.String enlace;
     private java.lang.Long fecha;
 
     /** Creates a new Builder */
@@ -255,8 +255,8 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
         this.tipo = data().deepCopy(fields()[1].schema(), other.tipo);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.url)) {
-        this.url = data().deepCopy(fields()[2].schema(), other.url);
+      if (isValidValue(fields()[2], other.enlace)) {
+        this.enlace = data().deepCopy(fields()[2].schema(), other.enlace);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
       if (isValidValue(fields()[3], other.fecha)) {
@@ -279,8 +279,8 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
         this.tipo = data().deepCopy(fields()[1].schema(), other.tipo);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.url)) {
-        this.url = data().deepCopy(fields()[2].schema(), other.url);
+      if (isValidValue(fields()[2], other.enlace)) {
+        this.enlace = data().deepCopy(fields()[2].schema(), other.enlace);
         fieldSetFlags()[2] = true;
       }
       if (isValidValue(fields()[3], other.fecha)) {
@@ -370,41 +370,41 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-      * Gets the value of the 'url' field.
+      * Gets the value of the 'enlace' field.
       * @return The value.
       */
-    public java.lang.String getUrl() {
-      return url;
+    public java.lang.String getEnlace() {
+      return enlace;
     }
 
 
     /**
-      * Sets the value of the 'url' field.
-      * @param value The value of 'url'.
+      * Sets the value of the 'enlace' field.
+      * @param value The value of 'enlace'.
       * @return This builder.
       */
-    public openpolitica.congreso.leyes.Documento.Builder setUrl(java.lang.String value) {
+    public openpolitica.congreso.leyes.Documento.Builder setEnlace(java.lang.String value) {
       validate(fields()[2], value);
-      this.url = value;
+      this.enlace = value;
       fieldSetFlags()[2] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'url' field has been set.
-      * @return True if the 'url' field has been set, false otherwise.
+      * Checks whether the 'enlace' field has been set.
+      * @return True if the 'enlace' field has been set, false otherwise.
       */
-    public boolean hasUrl() {
+    public boolean hasEnlace() {
       return fieldSetFlags()[2];
     }
 
 
     /**
-      * Clears the value of the 'url' field.
+      * Clears the value of the 'enlace' field.
       * @return This builder.
       */
-    public openpolitica.congreso.leyes.Documento.Builder clearUrl() {
-      url = null;
+    public openpolitica.congreso.leyes.Documento.Builder clearEnlace() {
+      enlace = null;
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -456,7 +456,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
         Documento record = new Documento();
         record.titulo = fieldSetFlags()[0] ? this.titulo : (java.lang.String) defaultValue(fields()[0]);
         record.tipo = fieldSetFlags()[1] ? this.tipo : (java.lang.String) defaultValue(fields()[1]);
-        record.url = fieldSetFlags()[2] ? this.url : (java.lang.String) defaultValue(fields()[2]);
+        record.enlace = fieldSetFlags()[2] ? this.enlace : (java.lang.String) defaultValue(fields()[2]);
         record.fecha = fieldSetFlags()[3] ? this.fecha : (java.lang.Long) defaultValue(fields()[3]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
@@ -506,7 +506,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
       out.writeString(this.tipo);
     }
 
-    out.writeString(this.url);
+    out.writeString(this.enlace);
 
     if (this.fecha == null) {
       out.writeIndex(1);
@@ -537,7 +537,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
         this.tipo = in.readString();
       }
 
-      this.url = in.readString();
+      this.enlace = in.readString();
 
       if (in.readIndex() != 0) {
         in.readNull();
@@ -568,7 +568,7 @@ public class Documento extends org.apache.avro.specific.SpecificRecordBase imple
           break;
 
         case 2:
-          this.url = in.readString();
+          this.enlace = in.readString();
           break;
 
         case 3:
