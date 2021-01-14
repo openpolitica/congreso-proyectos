@@ -25,7 +25,7 @@ jobs:
           java-version: 15
 
       - name: Build project with Maven
-        run: mvn clean compile exec:java -D"exec.mainClass"="openpolitica.congreso.ProyectosLey2016"
+        run: mvn clean compile
 
       - name: Run extraction
         run: mvn exec:java -D"exec.mainClass"="openpolitica.congreso.ProyectosLey2016"
