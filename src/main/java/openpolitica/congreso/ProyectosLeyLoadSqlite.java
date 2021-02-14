@@ -17,13 +17,13 @@ public class ProyectosLeyLoadSqlite {
 
   static List<TableLoad> tableLoadList = List.of(
       new ProyectoTableLoad(),
+      new ExpedienteTableLoad(),
       new IniciativaAgrupadaTableLoad(),
       new CongresistaTableLoad(),
       new AdherenteTableLoad(),
       new AutorTableLoad(),
       new SectoresTableLoad(),
-      new SeguimientoTableLoad(),
-      new ExpedienteTableLoad()
+      new SeguimientoTableLoad()
   );
 
   DataFileReader<ProyectoLey> load(Path input) throws IOException {
@@ -369,12 +369,20 @@ public class ProyectosLeyLoadSqlite {
         for (var d : pl.getExpediente().getDocumentos()) {
           ps.setString(1, pl.getNumeroUnico());
           ps.setString(2, d.getTipo());
-          ps.setLong(3, d.getFecha());
+          if (d.getFecha() != null) {
+            ps.setLong(3, d.getFecha());
+          }
           ps.setString(4, d.getTitulo());
           ps.setString(5, d.getEnlace());
           ps.addBatch();
         }
       }
     }
+  }
+
+  public static void main(String[] args) throws IOException, SQLException {
+    var avro = Path.of("data/proyectos-ley-2016.avro");
+    var loader = new ProyectosLeyLoadSqlite();
+    loader.save(avro, Path.of("data/proyectos-ley-2016.db"));
   }
 }

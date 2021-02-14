@@ -9,6 +9,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -450,7 +451,10 @@ public class ProyectosLeyExtract {
 
     //extrayendo documentos
     expedienteBuilder.setDocumentos(List.of());
-    var tablasDocumento = center.getElementsByTag("table");
+    var tablasDocumento = center.parent().getElementsByTag("table");
+    if (tablasDocumento.isEmpty()) {
+      tablasDocumento = center.getElementsByTag("table");
+    }
     //  cuando contiene docs de ley
     if (tablasDocumento.size() == 3) {
       var docsResultado = documentos("RESULTADO", tablasDocumento.first());
@@ -605,82 +609,95 @@ public class ProyectosLeyExtract {
   }
 
   private Long fecha(Element td) {
-    if (td.text().isBlank()) {
+    if (td.text().isBlank() || td.text().equals("Sinfecha")) {
       //LOG.warn("Fecha vacia! {}", td.html());
       return null;
-    }
-    //agregar cualquier condicion para arreglar inconsistencias en fechas
-    if (td.text().length() == 10) {
-      return LocalDate.parse(td.text(),
-          DateTimeFormatter.ofPattern("dd/MM/yyyy"))
-          .atStartOfDay()
-          .toInstant(ZoneOffset.ofHours(-5))
-          .toEpochMilli();
-    } else {
-      if (td.text().length() == 8) {
-        return LocalDate.parse(td.text()
-                .replaceAll("\\s+", "")
-                .replaceAll("-", "")
-                .replaceAll("\\+", "")
-                .replaceAll("//", "/")
-                .replaceAll("02/15/19", "15/02/19")
-                .replaceAll("20/0708", "20/07/18")
-            ,
-            DateTimeFormatter.ofPattern("dd/MM/yy"))
+    } else
+      //agregar cualquier condicion para arreglar inconsistencias en fechas
+      if (td.text().length() == 10 && !td.text().startsWith(", ")) {
+        return LocalDate.parse(td.text(),
+            DateTimeFormatter.ofPattern("dd/MM/yyyy"))
             .atStartOfDay()
             .toInstant(ZoneOffset.ofHours(-5))
             .toEpochMilli();
       } else {
-        if (td.text().length() > 10 || td.text().length() < 6) {
-          return null;
-        } else {
+        if (td.text().length() == 8) {
           return LocalDate.parse(td.text()
                   .replaceAll("\\s+", "")
                   .replaceAll("-", "")
                   .replaceAll("\\+", "")
+                  .replaceAll("\\(", "/")
                   .replaceAll("//", "/")
-                  .replaceAll("011", "11")
-                  .replaceAll("119", "19")
-                  .replaceAll("240", "24")
-                  .replaceAll("178", "18")
-                  .replaceAll("187", "18")
-                  .replaceAll("182", "18")
-                  .replaceAll("0520", "05/20")
-                  .replaceAll("5/04/19", "05/04/19")
-                  .replaceAll("0719", "07/19")
-                  .replaceAll("0617", "06/17")
-                  .replaceAll("1710", "17/10")
-                  .replaceAll("1018", "10/18")
-                  .replaceAll("0208", "02/08")
-                  .replaceAll("1907", "19/07")
-                  .replaceAll("23/03/18/", "23/03/18")
                   .replaceAll("02/15/19", "15/02/19")
-                  .replaceAll("21/5/20", "21/05/20")
                   .replaceAll("20/0708", "20/07/18")
-                  .replaceAll("21/012/06", "21/12/06")
-                  .replaceAll("12/142/06", "12/12/06")
-                  .replaceAll("15/0307", "15/03/07")
-                  .replaceAll("21/1206", "21/12/06")
-                  .replaceAll("029/06/06", "29/06/06")
+                  .replaceAll("09/13/09", "09/12/09")
               ,
               DateTimeFormatter.ofPattern("dd/MM/yy"))
               .atStartOfDay()
               .toInstant(ZoneOffset.ofHours(-5))
               .toEpochMilli();
+        } else {
+          if (td.text().length() > 10 || td.text().length() < 6 || td.text().equals("Sinfecha")) {
+            return null;
+          } else {
+            try {
+              return LocalDate.parse(td.text()
+                      .replaceAll("\\s+", "")
+                      .replaceAll("-", "")
+                      .replaceAll("\\+", "")
+                      .replaceAll("//", "/")
+                      .replaceAll("011", "11")
+                      .replaceAll("119", "19")
+                      .replaceAll("240", "24")
+                      .replaceAll("178", "18")
+                      .replaceAll("187", "18")
+                      .replaceAll("182", "18")
+                      .replaceAll("0520", "05/20")
+                      .replaceAll("5/04/19", "05/04/19")
+                      .replaceAll("0719", "07/19")
+                      .replaceAll("0617", "06/17")
+                      .replaceAll("1710", "17/10")
+                      .replaceAll("1018", "10/18")
+                      .replaceAll("0208", "02/08")
+                      .replaceAll("1907", "19/07")
+                      .replaceAll("23/03/18/", "23/03/18")
+                      .replaceAll("02/15/19", "15/02/19")
+                      .replaceAll("21/5/20", "21/05/20")
+                      .replaceAll("20/0708", "20/07/18")
+                      .replaceAll("21/012/06", "21/12/06")
+                      .replaceAll("12/142/06", "12/12/06")
+                      .replaceAll("15/0307", "15/03/07")
+                      .replaceAll("21/1206", "21/12/06")
+                      .replaceAll("029/06/06", "29/06/06")
+                      .replaceAll("30/1106", "30/11/06")
+                      .replaceAll("06/1206", "06/12/06")
+                      .replaceAll("22/05/8", "22/05/08")
+                      .replaceAll("08/05/8", "08/05/08")
+                      .replaceAll(", 22/09/09", "22/09/09")
+                      .replaceAll(", ", "")
+                      .replaceAll(",", "")
+                      .replaceAll("\\(", "/")
+                  ,
+                  DateTimeFormatter.ofPattern("dd/MM/yy"))
+                  .atStartOfDay()
+                  .toInstant(ZoneOffset.ofHours(-5))
+                  .toEpochMilli();
+            } catch (DateTimeParseException e) {
+              e.printStackTrace();
+              return null;
+            }
+          }
         }
       }
-    }
   }
 
-  public static void main(String[] args) throws IOException {
-    var doc = Jsoup.connect(
-        "http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Expvirt_2011.nsf/visbusqptramdoc1621/03301?opendocument"
-        //"http://www2.congreso.gob.pe/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc1621/06611?opendocument"
-    )
-        .get();
-    ProyectosLeyExtract.mapEnlacesOpiniones(doc,
-        Enlaces.newBuilder()
-            .setExpediente("exp")
-            .setSeguimiento("seg"));
+  public static void main(String[] args) {
+    var ext = new ProyectosLeyExtract(
+        "http://www2.congreso.gob.pe",
+        "/Sicr/TraDocEstProc/CLProLey2016.nsf/Local%20Por%20Numero?OpenView=&Start=",
+        "/Sicr/TraDocEstProc/Expvirt_2011.nsf/visbusqptramdoc1621/%s?opendocument",
+        100);
+    var proyectos = ext.run();
+    System.out.println(proyectos);
   }
 }
