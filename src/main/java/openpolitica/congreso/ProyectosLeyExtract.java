@@ -631,6 +631,7 @@ public class ProyectosLeyExtract {
                   .replaceAll("02/15/19", "15/02/19")
                   .replaceAll("20/0708", "20/07/18")
                   .replaceAll("09/13/09", "09/12/09")
+                  .replaceAll("190220", "09/02/20")
               ,
               DateTimeFormatter.ofPattern("dd/MM/yy"))
               .atStartOfDay()
