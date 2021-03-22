@@ -631,12 +631,19 @@ public class ProyectosLeyExtract {
                   .replaceAll("02/15/19", "15/02/19")
                   .replaceAll("20/0708", "20/07/18")
                   .replaceAll("09/13/09", "09/12/09")
-                  .replaceAll("190220", "09/02/20")
+                  .replaceAll("190220", "19/02/20")
+                  .replaceAll("180220", "18/02/20")
               ,
               DateTimeFormatter.ofPattern("dd/MM/yy"))
               .atStartOfDay()
               .toInstant(ZoneOffset.ofHours(-5))
               .toEpochMilli();
+        } else if (td.text().length() == 6) {
+            return LocalDate.parse(td.text(),
+                DateTimeFormatter.ofPattern("ddMMyy"))
+                .atStartOfDay()
+                .toInstant(ZoneOffset.ofHours(-5))
+                .toEpochMilli();
         } else {
           if (td.text().length() > 10 || td.text().length() < 6 || td.text().equals("Sinfecha")) {
             return null;
