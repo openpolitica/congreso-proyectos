@@ -34,6 +34,7 @@ import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -212,42 +213,37 @@ public class ProyectosLeyExtract {
     var url = (String) importado.get("enlace_seguimiento");
     try {
       var doc = Jsoup.connect(url).get();
-      var scripts = doc.head().getElementsByTag("script");
-      if (scripts.size() != 2) {
-        LOG.error("Numero inesperado de scripts {}, url={}", scripts.size(), url);
-        throw new IllegalStateException("Unexpected number of tables");
-      }
       var tablas = doc.body().getElementsByTag("table");
-      if (tablas.size() != 2) {
-        LOG.error("Unexpected number of tables url={}", url);
-        throw new IllegalStateException("Unexpected number of tables");
-      }
 
-      var urlExpediente = String.format(baseUrl + expedienteUrl, importado.get("numero"));
+      var numero = importado.get("numero");
+      var urlExpediente = String.format(baseUrl + expedienteUrl, numero);
 
       var ley = Ley.newBuilder();
 
-      var builder = ProyectoLey.newBuilder();
+      var proyecto = ProyectoLey.newBuilder()
+          .setIniciativasAgrupadas(List.of())
+          .setAdherentes(List.of());
 
-      builder.setIniciativasAgrupadas(List.of());
-      builder.setAdherentes(List.of());
-
-      var contenidoTabla = tablas.get(1);
-      contenidoTabla.getElementsByTag("tr")
+      var contenidoTabla = tablas.first();
+      var tituloRow = contenidoTabla.children().first().children().first().children();
+      proyecto.setNumeroUnico(tituloRow.get(0).child(1).text());
+      tablas.get(1).getElementsByTag("tr")
           .forEach(tr -> {
             var tds = tr.getElementsByTag("td");
-            var field = tds.get(0).text();
-            var entry = tds.get(1);
-            mapSeguimiento(builder, ley, field, entry);
-            if (tds.size() == 4) {
-              mapSeguimiento(builder, ley, tds.get(2).text(), tds.get(3));
+            if (tds.size() > 1) {
+              var field = tds.get(0);
+              var entry = tds.get(1);
+              mapSeguimiento(proyecto, ley, field, entry);
+              if (tds.size() == 4) {
+                mapSeguimiento(proyecto, ley, tds.get(2), tds.get(3));
+              }
             }
           });
 
       var seguimientos = new ArrayList<Seguimiento>();
-      if (builder.getSeguimientoTexto() != null && !builder.getSeguimientoTexto().isBlank()) {
-        var matcher = datePattern.matcher(builder.getSeguimientoTexto());
-        var textos = Arrays.stream(builder.getSeguimientoTexto().split(datePattern.pattern()))
+      if (proyecto.getSeguimientoTexto() != null && !proyecto.getSeguimientoTexto().isBlank()) {
+        var matcher = datePattern.matcher(proyecto.getSeguimientoTexto());
+        var textos = Arrays.stream(proyecto.getSeguimientoTexto().split(datePattern.pattern()))
             .map(String::trim)
             .filter(s -> !s.isBlank())
             .collect(toList());
@@ -276,10 +272,10 @@ public class ProyectosLeyExtract {
         }
       }
 
-      if (builder.getTitulo() == null) builder.setTitulo((String) importado.get("titulo"));
+      if (proyecto.getTitulo() == null) proyecto.setTitulo((String) importado.get("titulo"));
 
-      builder
-          .setPeriodoNumero((String) importado.get("numero"))
+      proyecto
+          .setPeriodoNumero((String) numero)
           .setEstado((String) importado.get("estado"))
           .setActualizacionFecha((Long) importado.get("actualizacion_fecha"))
           .setPublicacionFecha((Long) importado.get("publicacion_fecha"))
@@ -291,50 +287,54 @@ public class ProyectosLeyExtract {
               .setOpinionesPublicadas(null)
               .setOpinionesPublicar(null)
               .setSeguimiento(url));
-      return builder;
+      return proyecto;
     } catch (HttpStatusException e) {
       if (e.getStatusCode() == 404) {
         LOG.error("Error procesando proyecto {} referencia {}. Pagina no existe!!!",
             importado, url);
         return null;
       }
-      LOG.error("Error procesando proyecto {} referencia {}", importado, url);
+      LOG.error("Error procesando proyecto {} referencia {}", importado, url, e);
       throw new RuntimeException(e);
     } catch (Throwable e) {
-      LOG.error("Error procesando proyecto {} referencia {}", importado, url);
+      LOG.error("Error procesando proyecto {} referencia {}", importado, url, e);
       throw new RuntimeException(e);
     }
   }
 
-  private void mapSeguimiento(ProyectoLey.Builder builder, Ley.Builder ley, String field,
-      Element entry) {
+  private void mapSeguimiento(
+      ProyectoLey.Builder builder,
+      Ley.Builder ley,
+      Element field,
+      Element entry
+  ) {
+    var split = field.text().split(":");
+    var key = split[0];
     var texto = entry.text().trim();
-    switch (field) {
-      case "Período:" -> builder.setPeriodo(texto);
-      case "Legislatura:", "Legislatura:." -> builder.setLegislatura(texto);
-      case "Número:" -> builder.setNumeroUnico(texto);
-      case "Fecha Presentación:" -> {
+    switch (key) {
+      case "Período", "Período Parlamentario" -> builder.setPeriodo(texto);
+      case "Legislatura", "Legislatura." -> builder.setLegislatura(texto);
+      case "Fecha Presentación" -> {
       }
-      case "Proponente:" -> builder.setProponente(texto);
-      case "Grupo Parlamentario:" -> {
-        if (!texto.isBlank()) {
-          builder.setGrupoParlamentario(texto);
-        }
+      case "Proponente" -> builder.setProponente(texto);
+      case "Grupo Parlamentario" -> {
+        builder.setGrupoParlamentario(field.child(1).text());
+        builder.setAutores(autores(field.getElementsByTag("p").first()));
       }
-      case "Título:" -> builder.setTitulo(texto
+      case "Título" -> builder.setTitulo(texto
           .replaceAll("\"\"", "\"")
           .replaceAll("\"", "'")
           .replaceAll(",,", ",")
           .replaceAll(":", ".-"));
-      case "Sumilla:" -> {
+      case "Objeto del Proyecto de Ley" -> {
         if (!texto.isBlank()) {
           builder.setSumilla(texto);
         }
       }
-      case "Seguimiento:", "Seguimiento:." -> builder.setSeguimientoTexto(texto);
-      case "Autores (*):" -> builder.setAutores(autores(entry));
-      case "Adherentes(**):" -> builder.setAdherentes(adherentes(entry));
-      case "Iniciativas Agrupadas:" -> {
+      case "Envío a Comisión" -> builder.setSeguimientoTexto(texto);
+      //case "Autores (*)" -> builder.setAutores(autores(entry));
+      case "Adherentes(**)" -> builder.setAdherentes(adherentes(entry));
+      case "Proyectos de Ley Agrupados" -> {
         if (!texto.isBlank()) {
           var values = Arrays.stream(texto.split(","))
               .map(String::trim)
@@ -342,29 +342,42 @@ public class ProyectosLeyExtract {
           builder.setIniciativasAgrupadas(values);
         }
       }
-      case "Número de Ley:" -> ley.setNumero(texto);
-      case "Título de la Ley:" -> ley.setTitulo(texto);
-      case "Sumilla de la Ley" -> {
-        if (!texto.isBlank()) {
-          ley.setSumilla(texto);
-        }
+      //case "Número de Ley" -> ley.setNumero(texto);
+      case "Ley" -> {
+        var fonts = entry.getElementsByTag("font");
+        ley.setNumero(fonts.get(0).text());
+        ley.setTitulo(fonts.get(1).text());
       }
-      default -> LOG.error("Campo no mapeado: " + field);
+      //case "Sumilla de la Ley" -> {
+      //  if (!texto.isBlank()) {
+      //    ley.setSumilla(texto);
+      //  }
+      //}
+      default -> {
+        if (key.startsWith("Objeto del Proyecto de Ley")) builder.setSumilla(texto);
+        else ley.setSumilla(entry.text()); //LOG.error("Campo no mapeado: {} => {}", field, entry.text());
+      }
     }
   }
 
   private List<Congresista> autores(Element element) {
-    return
-        element.getElementsByTag("a").stream()
-            .map(a -> {
-              String email = a.attr("href");
-              String nombreCompleto = a.text();
-              return Congresista.newBuilder()
-                  .setCorreoElectronico(email)
-                  .setNombreCompleto(nombreCompleto)
-                  .build();
-            })
-            .collect(toList());
+    return Arrays.stream(element.text().split(","))
+        .map(s -> Congresista.newBuilder()
+            .setNombreCompleto(s)
+            .setCorreoElectronico(null)
+            .build())
+        .collect(toList());
+    //return
+    //    element.getElementsByTag("a").stream()
+    //        .map(a -> {
+    //          String email = a.attr("href");
+    //          String nombreCompleto = a.text();
+    //          return Congresista.newBuilder()
+    //              .setCorreoElectronico(email)
+    //              .setNombreCompleto(nombreCompleto)
+    //              .build();
+    //        })
+    //        .collect(toList());
   }
 
   private List<String> adherentes(Element element) {
@@ -650,6 +663,7 @@ public class ProyectosLeyExtract {
           } else {
             try {
               return LocalDate.parse(td.text()
+                      .replaceAll("O14/01/21", "14/01/21")
                       .replaceAll("\\s+", "")
                       .replaceAll("-", "")
                       .replaceAll("\\+", "")
@@ -678,6 +692,7 @@ public class ProyectosLeyExtract {
                       .replaceAll("21/1206", "21/12/06")
                       .replaceAll("029/06/06", "29/06/06")
                       .replaceAll("30/1106", "30/11/06")
+                      .replaceAll("014/01/21", "14/01/21")
                       .replaceAll("06/1206", "06/12/06")
                       .replaceAll("22/05/8", "22/05/08")
                       .replaceAll("08/05/8", "08/05/08")

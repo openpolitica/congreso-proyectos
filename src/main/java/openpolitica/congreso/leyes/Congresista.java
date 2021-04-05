@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Congresista extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -7882367587311751769L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Congresista\",\"namespace\":\"openpolitica.congreso.leyes\",\"fields\":[{\"name\":\"nombre_completo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"correo_electronico\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = -3067181306209691021L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Congresista\",\"namespace\":\"openpolitica.congreso.leyes\",\"fields\":[{\"name\":\"nombre_completo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"correo_electronico\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -348,7 +348,13 @@ public class Congresista extends org.apache.avro.specific.SpecificRecordBase imp
   {
     out.writeString(this.nombre_completo);
 
-    out.writeString(this.correo_electronico);
+    if (this.correo_electronico == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeString(this.correo_electronico);
+    }
 
   }
 
@@ -359,7 +365,12 @@ public class Congresista extends org.apache.avro.specific.SpecificRecordBase imp
     if (fieldOrder == null) {
       this.nombre_completo = in.readString();
 
-      this.correo_electronico = in.readString();
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.correo_electronico = null;
+      } else {
+        this.correo_electronico = in.readString();
+      }
 
     } else {
       for (int i = 0; i < 2; i++) {
@@ -369,7 +380,12 @@ public class Congresista extends org.apache.avro.specific.SpecificRecordBase imp
           break;
 
         case 1:
-          this.correo_electronico = in.readString();
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.correo_electronico = null;
+          } else {
+            this.correo_electronico = in.readString();
+          }
           break;
 
         default:
