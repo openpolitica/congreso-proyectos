@@ -34,7 +34,6 @@ import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -227,18 +226,18 @@ public class ProyectosLeyExtract {
       var contenidoTabla = tablas.first();
       var tituloRow = contenidoTabla.children().first().children().first().children();
       proyecto.setNumeroUnico(tituloRow.get(0).child(1).text());
-      tablas.get(1).getElementsByTag("tr")
-          .forEach(tr -> {
-            var tds = tr.getElementsByTag("td");
-            if (tds.size() > 1) {
-              var field = tds.get(0);
-              var entry = tds.get(1);
-              mapSeguimiento(proyecto, ley, field, entry);
-              if (tds.size() == 4) {
-                mapSeguimiento(proyecto, ley, tds.get(2), tds.get(3));
-              }
-            }
-          });
+      var elements = tablas.get(1).getElementsByTag("tr");
+      elements.forEach(tr -> {
+        var tds = tr.getElementsByTag("td");
+        if (tds.size() >= 1) {
+          var field = tds.first();
+          var entry = tds.size() == 1 ? null : tds.get(1);
+          mapSeguimiento(proyecto, ley, field, entry);
+          if (tds.size() == 4) {
+            mapSeguimiento(proyecto, ley, tds.get(2), tds.get(3));
+          }
+        }
+      });
 
       var seguimientos = new ArrayList<Seguimiento>();
       if (proyecto.getSeguimientoTexto() != null && !proyecto.getSeguimientoTexto().isBlank()) {
@@ -310,7 +309,7 @@ public class ProyectosLeyExtract {
   ) {
     var split = field.text().split(":");
     var key = split[0];
-    var texto = entry.text().trim();
+    var texto = entry == null ? "" : entry.text().trim();
     switch (key) {
       case "Período", "Período Parlamentario" -> builder.setPeriodo(texto);
       case "Legislatura", "Legislatura." -> builder.setLegislatura(texto);
@@ -318,8 +317,14 @@ public class ProyectosLeyExtract {
       }
       case "Proponente" -> builder.setProponente(texto);
       case "Grupo Parlamentario" -> {
-        builder.setGrupoParlamentario(field.child(1).text());
-        builder.setAutores(autores(field.getElementsByTag("p").first()));
+        var grupoParlamentario = field.child(1).text();
+        if (!grupoParlamentario.isBlank()) {
+          builder.setGrupoParlamentario(grupoParlamentario);
+          var autores = field.getElementsByTag("p").first();
+          builder.setAutores(autores(autores));
+        } else {
+          builder.setAutores(List.of());
+        }
       }
       case "Título" -> builder.setTitulo(texto
           .replaceAll("\"\"", "\"")
@@ -344,9 +349,11 @@ public class ProyectosLeyExtract {
       }
       //case "Número de Ley" -> ley.setNumero(texto);
       case "Ley" -> {
-        var fonts = entry.getElementsByTag("font");
-        ley.setNumero(fonts.get(0).text());
-        ley.setTitulo(fonts.get(1).text());
+        if (entry != null) {
+          var fonts = entry.getElementsByTag("font");
+          ley.setNumero(fonts.get(0).text());
+          ley.setTitulo(fonts.get(1).text());
+        }
       }
       //case "Sumilla de la Ley" -> {
       //  if (!texto.isBlank()) {
@@ -354,8 +361,11 @@ public class ProyectosLeyExtract {
       //  }
       //}
       default -> {
-        if (key.startsWith("Objeto del Proyecto de Ley")) builder.setSumilla(texto);
-        else ley.setSumilla(entry.text()); //LOG.error("Campo no mapeado: {} => {}", field, entry.text());
+        if (key.startsWith("Objeto del Proyecto de Ley")) {
+          builder.setSumilla(texto);
+        } else {
+          ley.setSumilla(texto); //LOG.error("Campo no mapeado: {} => {}", field, entry.text());
+        }
       }
     }
   }
@@ -381,6 +391,7 @@ public class ProyectosLeyExtract {
   }
 
   private List<String> adherentes(Element element) {
+    if (element == null) return List.of();
     return Arrays.asList(element.text().split(","));
   }
 
@@ -652,11 +663,11 @@ public class ProyectosLeyExtract {
               .toInstant(ZoneOffset.ofHours(-5))
               .toEpochMilli();
         } else if (td.text().length() == 6) {
-            return LocalDate.parse(td.text(),
-                DateTimeFormatter.ofPattern("ddMMyy"))
-                .atStartOfDay()
-                .toInstant(ZoneOffset.ofHours(-5))
-                .toEpochMilli();
+          return LocalDate.parse(td.text(),
+              DateTimeFormatter.ofPattern("ddMMyy"))
+              .atStartOfDay()
+              .toInstant(ZoneOffset.ofHours(-5))
+              .toEpochMilli();
         } else {
           if (td.text().length() > 10 || td.text().length() < 6 || td.text().equals("Sinfecha")) {
             return null;
