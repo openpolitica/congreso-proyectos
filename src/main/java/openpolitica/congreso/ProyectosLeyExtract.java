@@ -326,15 +326,17 @@ public class ProyectosLeyExtract {
           builder.setAutores(List.of());
         }
       }
-      case "Título" -> builder.setTitulo(texto
-          .replaceAll("\"\"", "\"")
-          .replaceAll("\"", "'")
-          .replaceAll(",,", ",")
-          .replaceAll(":", ".-"));
+      case "Título" -> {
+        var t = field.getElementsByTag("font").get(1).text();
+        builder.setTitulo(t
+            .replaceAll("\"\"", "\"")
+            .replaceAll("\"", "'")
+            .replaceAll(",,", ",")
+            .replaceAll(":", ".-"));
+      }
       case "Objeto del Proyecto de Ley" -> {
-        if (!texto.isBlank()) {
-          builder.setSumilla(texto);
-        }
+        var t = field.getElementsByTag("font").get(1).text();
+        builder.setSumilla(t);
       }
       case "Envío a Comisión" -> builder.setSeguimientoTexto(texto);
       //case "Autores (*)" -> builder.setAutores(autores(entry));
