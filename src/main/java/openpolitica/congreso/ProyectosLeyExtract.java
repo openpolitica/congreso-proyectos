@@ -156,12 +156,12 @@ public class ProyectosLeyExtract {
       var url = baseUrl + proyectosUrl + index;
       var doc = Jsoup.connect(url).get();
       var tablas = doc.body().getElementsByTag("table");
-      if (tablas.size() != 3) {
+      if (tablas.size() != 4) {
         LOG.error("Numero de tablas inesperado: {}, url={}", tablas.size(), url);
         throw new IllegalStateException("Unexpected number of tables");
       }
       var proyectos = new LinkedHashMap<String, Map<String, Object>>();
-      var filas = tablas.get(1).getElementsByTag("tr");
+      var filas = tablas.get(2).getElementsByTag("tr");
       for (int i = 1; i < filas.size(); i++) {
         var proyecto = mapProyecto(filas.get(i));
         proyectos.put(proyecto.get("numero").toString(), proyecto);
