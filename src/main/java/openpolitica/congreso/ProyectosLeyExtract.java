@@ -214,12 +214,13 @@ public class ProyectosLeyExtract {
       var doc = Jsoup.connect(url).get();
       var tablas = doc.body().getElementsByTag("table");
 
-      var numero = importado.get("numero");
+      var numero = (String) importado.get("numero");
       var urlExpediente = String.format(baseUrl + expedienteUrl, numero);
 
       var ley = Ley.newBuilder();
 
       var proyecto = ProyectoLey.newBuilder()
+          .setPeriodoNumero(numero)
           .setIniciativasAgrupadas(List.of())
           .setAdherentes(List.of());
 
@@ -274,7 +275,6 @@ public class ProyectosLeyExtract {
       if (proyecto.getTitulo() == null) proyecto.setTitulo((String) importado.get("titulo"));
 
       proyecto
-          .setPeriodoNumero((String) numero)
           .setEstado((String) importado.get("estado"))
           .setActualizacionFecha((Long) importado.get("actualizacion_fecha"))
           .setPublicacionFecha((Long) importado.get("publicacion_fecha"))
@@ -309,6 +309,7 @@ public class ProyectosLeyExtract {
   ) {
     var split = field.text().split(":");
     var key = split[0];
+    var value = split.length == 2 ? split[1] : "";
     var texto = entry == null ? "" : entry.text().trim();
     switch (key) {
       case "Período", "Período Parlamentario" -> builder.setPeriodo(texto);
@@ -338,7 +339,7 @@ public class ProyectosLeyExtract {
         var t = field.getElementsByTag("font").get(1).text();
         builder.setSumilla(t);
       }
-      case "Envío a Comisión" -> builder.setSeguimientoTexto(texto);
+      case "Envío a Comisión" -> builder.setSeguimientoTexto(value);
       //case "Autores (*)" -> builder.setAutores(autores(entry));
       case "Adherentes(**)" -> builder.setAdherentes(adherentes(entry));
       case "Proyectos de Ley Agrupados" -> {
@@ -364,7 +365,7 @@ public class ProyectosLeyExtract {
       //}
       default -> {
         if (key.startsWith("Objeto del Proyecto de Ley")) {
-          builder.setSumilla(texto);
+          builder.setSumilla(value);
         } else {
           ley.setSumilla(texto); //LOG.error("Campo no mapeado: {} => {}", field, entry.text());
         }
